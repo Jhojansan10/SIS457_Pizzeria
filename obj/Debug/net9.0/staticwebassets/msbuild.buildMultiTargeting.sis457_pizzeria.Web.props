@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\sis457_pizzeria.Web.props" />
+</Project>
