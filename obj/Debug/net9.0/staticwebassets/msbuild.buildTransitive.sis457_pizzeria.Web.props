@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\sis457_pizzeria.Web.props" />
-</Project>
