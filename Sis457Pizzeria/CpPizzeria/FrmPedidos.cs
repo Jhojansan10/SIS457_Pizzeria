@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CpPizzeria
 {
-    public partial class Form1 : Form
+    public partial class FrmPedidos : Form
     {
-        public Form1()
+        public FrmPedidos()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblEpisodios_Click(object sender, EventArgs e)
         {
 
         }
@@ -27,7 +27,7 @@ namespace CpPizzeria
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -37,22 +37,7 @@ namespace CpPizzeria
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTitulo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSinopsis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
