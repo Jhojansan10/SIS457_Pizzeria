@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPago));
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtMontoPagado = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cboMetodoPago = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMontoPagado = new System.Windows.Forms.TextBox();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.gbxSerie.SuspendLayout();
@@ -74,7 +74,7 @@
             this.gbxDatos.Controls.Add(this.lblTotal);
             this.gbxDatos.Controls.Add(this.lblSinopsis);
             this.gbxDatos.Controls.Add(this.lblTitulo);
-            this.gbxDatos.Font = new System.Drawing.Font("Monotype Corsiva", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxDatos.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(60, 396);
             this.gbxDatos.Margin = new System.Windows.Forms.Padding(4);
             this.gbxDatos.Name = "gbxDatos";
@@ -84,21 +84,29 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Formulario de pago";
             // 
+            // txtMontoPagado
+            // 
+            this.txtMontoPagado.Location = new System.Drawing.Point(89, 61);
+            this.txtMontoPagado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMontoPagado.Name = "txtMontoPagado";
+            this.txtMontoPagado.Size = new System.Drawing.Size(176, 22);
+            this.txtMontoPagado.TabIndex = 34;
+            // 
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(404, 62);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(176, 21);
+            this.txtCantidad.Size = new System.Drawing.Size(176, 22);
             this.txtCantidad.TabIndex = 33;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 65);
+            this.label6.Location = new System.Drawing.Point(291, 66);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 14);
+            this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 32;
             this.label6.Text = "Cantidad:";
             // 
@@ -107,7 +115,7 @@
             this.cboMetodoPago.FormattingEnabled = true;
             this.cboMetodoPago.Location = new System.Drawing.Point(404, 19);
             this.cboMetodoPago.Name = "cboMetodoPago";
-            this.cboMetodoPago.Size = new System.Drawing.Size(176, 22);
+            this.cboMetodoPago.Size = new System.Drawing.Size(176, 25);
             this.cboMetodoPago.TabIndex = 31;
             // 
             // label4
@@ -116,7 +124,7 @@
             this.label4.Location = new System.Drawing.Point(291, 27);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 14);
+            this.label4.Size = new System.Drawing.Size(100, 17);
             this.label4.TabIndex = 30;
             this.label4.Text = "Método de pago:";
             // 
@@ -125,7 +133,7 @@
             this.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaPago.Location = new System.Drawing.Point(89, 90);
             this.dtpFechaPago.Name = "dtpFechaPago";
-            this.dtpFechaPago.Size = new System.Drawing.Size(176, 21);
+            this.dtpFechaPago.Size = new System.Drawing.Size(176, 22);
             this.dtpFechaPago.TabIndex = 25;
             // 
             // cboPedido
@@ -133,7 +141,7 @@
             this.cboPedido.FormattingEnabled = true;
             this.cboPedido.Location = new System.Drawing.Point(89, 20);
             this.cboPedido.Name = "cboPedido";
-            this.cboPedido.Size = new System.Drawing.Size(176, 22);
+            this.cboPedido.Size = new System.Drawing.Size(176, 25);
             this.cboPedido.TabIndex = 23;
             // 
             // label3
@@ -142,7 +150,7 @@
             this.label3.Location = new System.Drawing.Point(35, 97);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 14);
+            this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 21;
             this.label3.Text = "Fecha:";
             // 
@@ -180,7 +188,7 @@
             this.lblTotal.Location = new System.Drawing.Point(644, 69);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 14);
+            this.lblTotal.Size = new System.Drawing.Size(0, 17);
             this.lblTotal.TabIndex = 6;
             // 
             // lblSinopsis
@@ -189,7 +197,7 @@
             this.lblSinopsis.Location = new System.Drawing.Point(20, 64);
             this.lblSinopsis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSinopsis.Name = "lblSinopsis";
-            this.lblSinopsis.Size = new System.Drawing.Size(72, 14);
+            this.lblSinopsis.Size = new System.Drawing.Size(91, 17);
             this.lblSinopsis.TabIndex = 1;
             this.lblSinopsis.Text = "Monto pagado:";
             // 
@@ -199,7 +207,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(20, 28);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(40, 14);
+            this.lblTitulo.Size = new System.Drawing.Size(49, 17);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Pedido:";
             // 
@@ -259,7 +267,7 @@
             // gbxSerie
             // 
             this.gbxSerie.Controls.Add(this.dgvPagos);
-            this.gbxSerie.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSerie.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSerie.Location = new System.Drawing.Point(105, 119);
             this.gbxSerie.Margin = new System.Windows.Forms.Padding(4);
             this.gbxSerie.Name = "gbxSerie";
@@ -274,7 +282,7 @@
             this.dgvPagos.AllowUserToAddRows = false;
             this.dgvPagos.AllowUserToDeleteRows = false;
             this.dgvPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvPagos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPagos.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dgvPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPagos.Location = new System.Drawing.Point(12, 26);
             this.dgvPagos.Margin = new System.Windows.Forms.Padding(4);
@@ -311,36 +319,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(37, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 22);
+            this.label2.Size = new System.Drawing.Size(239, 21);
             this.label2.TabIndex = 26;
             this.label2.Text = "Buscar por ID, cliente o método";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(266, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 45);
+            this.label1.Size = new System.Drawing.Size(366, 44);
             this.label1.TabIndex = 25;
             this.label1.Text = "PIZZERIA - PAGOS";
-            // 
-            // txtMontoPagado
-            // 
-            this.txtMontoPagado.Location = new System.Drawing.Point(89, 61);
-            this.txtMontoPagado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMontoPagado.Name = "txtMontoPagado";
-            this.txtMontoPagado.Size = new System.Drawing.Size(176, 21);
-            this.txtMontoPagado.TabIndex = 34;
             // 
             // FrmPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(886, 568);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);

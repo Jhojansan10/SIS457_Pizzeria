@@ -72,31 +72,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(228, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(406, 45);
+            this.label1.Size = new System.Drawing.Size(443, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "PIZZERIA - PLATILLOS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 22);
+            this.label2.Size = new System.Drawing.Size(210, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Buscar por Nombre o Descripción";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(288, 85);
+            this.txtBuscar.Location = new System.Drawing.Point(229, 80);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(378, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(437, 20);
             this.txtBuscar.TabIndex = 17;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -114,8 +118,9 @@
             // 
             // gbxSerie
             // 
+            this.gbxSerie.BackColor = System.Drawing.Color.Transparent;
             this.gbxSerie.Controls.Add(this.dgvLista);
-            this.gbxSerie.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSerie.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSerie.Location = new System.Drawing.Point(75, 126);
             this.gbxSerie.Margin = new System.Windows.Forms.Padding(4);
             this.gbxSerie.Name = "gbxSerie";
@@ -130,7 +135,7 @@
             this.dgvLista.AllowUserToAddRows = false;
             this.dgvLista.AllowUserToDeleteRows = false;
             this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLista.BackgroundColor = System.Drawing.Color.Beige;
+            this.dgvLista.BackgroundColor = System.Drawing.Color.OldLace;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Location = new System.Drawing.Point(12, 21);
             this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
@@ -144,6 +149,7 @@
             // 
             // pnlAcciones
             // 
+            this.pnlAcciones.BackColor = System.Drawing.Color.Transparent;
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
@@ -197,6 +203,7 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.BackColor = System.Drawing.Color.Transparent;
             this.gbxDatos.Controls.Add(this.chkEstado);
             this.gbxDatos.Controls.Add(this.label5);
             this.gbxDatos.Controls.Add(this.txtImagen);
@@ -213,7 +220,7 @@
             this.gbxDatos.Controls.Add(this.lblDirector);
             this.gbxDatos.Controls.Add(this.lblSinopsis);
             this.gbxDatos.Controls.Add(this.lblTitulo);
-            this.gbxDatos.Font = new System.Drawing.Font("Monotype Corsiva", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxDatos.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(28, 409);
             this.gbxDatos.Margin = new System.Windows.Forms.Padding(4);
             this.gbxDatos.Name = "gbxDatos";
@@ -238,7 +245,7 @@
             this.label5.Location = new System.Drawing.Point(321, 93);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 14);
+            this.label5.Size = new System.Drawing.Size(51, 18);
             this.label5.TabIndex = 26;
             this.label5.Text = "Estado:";
             // 
@@ -247,7 +254,7 @@
             this.txtImagen.Location = new System.Drawing.Point(436, 61);
             this.txtImagen.Margin = new System.Windows.Forms.Padding(4);
             this.txtImagen.Name = "txtImagen";
-            this.txtImagen.Size = new System.Drawing.Size(176, 21);
+            this.txtImagen.Size = new System.Drawing.Size(176, 23);
             this.txtImagen.TabIndex = 25;
             // 
             // label4
@@ -256,7 +263,7 @@
             this.label4.Location = new System.Drawing.Point(318, 64);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 14);
+            this.label4.Size = new System.Drawing.Size(57, 18);
             this.label4.TabIndex = 24;
             this.label4.Text = "Imagen:";
             // 
@@ -265,7 +272,7 @@
             this.txtTiempo.Location = new System.Drawing.Point(436, 25);
             this.txtTiempo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTiempo.Name = "txtTiempo";
-            this.txtTiempo.Size = new System.Drawing.Size(176, 21);
+            this.txtTiempo.Size = new System.Drawing.Size(176, 23);
             this.txtTiempo.TabIndex = 23;
             // 
             // label3
@@ -274,7 +281,7 @@
             this.label3.Location = new System.Drawing.Point(318, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 14);
+            this.label3.Size = new System.Drawing.Size(151, 18);
             this.label3.TabIndex = 22;
             this.label3.Text = "Tiempo de Preparacion:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -284,7 +291,7 @@
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(89, 122);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(176, 22);
+            this.cboCategoria.Size = new System.Drawing.Size(176, 26);
             this.cboCategoria.TabIndex = 21;
             // 
             // btnCancelar
@@ -306,7 +313,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(89, 86);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(176, 21);
+            this.txtPrecio.Size = new System.Drawing.Size(176, 23);
             this.txtPrecio.TabIndex = 12;
             // 
             // btnGuardar
@@ -329,7 +336,7 @@
             this.lblEpisodios.Location = new System.Drawing.Point(20, 125);
             this.lblEpisodios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEpisodios.Name = "lblEpisodios";
-            this.lblEpisodios.Size = new System.Drawing.Size(52, 14);
+            this.lblEpisodios.Size = new System.Drawing.Size(69, 18);
             this.lblEpisodios.TabIndex = 6;
             this.lblEpisodios.Text = "Caregoría:";
             // 
@@ -338,7 +345,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(89, 57);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(176, 21);
+            this.txtDescripcion.Size = new System.Drawing.Size(176, 23);
             this.txtDescripcion.TabIndex = 4;
             // 
             // txtNombre
@@ -346,7 +353,7 @@
             this.txtNombre.Location = new System.Drawing.Point(89, 21);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(176, 21);
+            this.txtNombre.Size = new System.Drawing.Size(176, 23);
             this.txtNombre.TabIndex = 3;
             // 
             // lblDirector
@@ -355,7 +362,7 @@
             this.lblDirector.Location = new System.Drawing.Point(20, 93);
             this.lblDirector.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDirector.Name = "lblDirector";
-            this.lblDirector.Size = new System.Drawing.Size(39, 14);
+            this.lblDirector.Size = new System.Drawing.Size(48, 18);
             this.lblDirector.TabIndex = 2;
             this.lblDirector.Text = "Precio:";
             // 
@@ -365,7 +372,7 @@
             this.lblSinopsis.Location = new System.Drawing.Point(20, 64);
             this.lblSinopsis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSinopsis.Name = "lblSinopsis";
-            this.lblSinopsis.Size = new System.Drawing.Size(61, 14);
+            this.lblSinopsis.Size = new System.Drawing.Size(83, 18);
             this.lblSinopsis.TabIndex = 1;
             this.lblSinopsis.Text = "Descripción:";
             // 
@@ -375,7 +382,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(20, 28);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(45, 14);
+            this.lblTitulo.Size = new System.Drawing.Size(61, 18);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Nombre:";
             // 
@@ -396,6 +403,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(837, 576);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);

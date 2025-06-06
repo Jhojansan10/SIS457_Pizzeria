@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.label1 = new System.Windows.Forms.Label();
             this.lblClave = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -51,9 +52,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(216, 9);
+            this.label1.Location = new System.Drawing.Point(288, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 25);
+            this.label1.Size = new System.Drawing.Size(191, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Iniciar Sesion";
             // 
@@ -61,9 +63,10 @@
             // 
             this.lblClave.AutoSize = true;
             this.lblClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClave.Location = new System.Drawing.Point(12, 116);
+            this.lblClave.Location = new System.Drawing.Point(16, 143);
+            this.lblClave.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(96, 20);
+            this.lblClave.Size = new System.Drawing.Size(120, 25);
             this.lblClave.TabIndex = 8;
             this.lblClave.Text = "Contraseña:";
             // 
@@ -71,33 +74,39 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(40, 71);
+            this.lblEmail.Location = new System.Drawing.Point(53, 87);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(52, 20);
+            this.lblEmail.Size = new System.Drawing.Size(66, 25);
             this.lblEmail.TabIndex = 7;
             this.lblEmail.Text = "Email:";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(114, 71);
+            this.txtUsuario.Location = new System.Drawing.Point(152, 87);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(257, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(341, 22);
             this.txtUsuario.TabIndex = 9;
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(114, 116);
+            this.txtClave.Location = new System.Drawing.Point(152, 143);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtClave.MaxLength = 20;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(257, 20);
+            this.txtClave.Size = new System.Drawing.Size(341, 22);
             this.txtClave.TabIndex = 10;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(393, 45);
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(537, 52);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(145, 137);
+            this.pictureBox1.Size = new System.Drawing.Size(193, 169);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -106,10 +115,11 @@
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(103, 180);
+            this.btnIngresar.Location = new System.Drawing.Point(137, 222);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnIngresar.Size = new System.Drawing.Size(137, 44);
+            this.btnIngresar.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.btnIngresar.Size = new System.Drawing.Size(183, 54);
             this.btnIngresar.TabIndex = 14;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -119,10 +129,11 @@
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(268, 180);
+            this.btnSalir.Location = new System.Drawing.Point(357, 222);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSalir.Size = new System.Drawing.Size(119, 44);
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.btnSalir.Size = new System.Drawing.Size(159, 54);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -138,10 +149,10 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(560, 247);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(747, 304);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnSalir);
@@ -150,6 +161,7 @@
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmLogin";
             this.Text = "Iniciar Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

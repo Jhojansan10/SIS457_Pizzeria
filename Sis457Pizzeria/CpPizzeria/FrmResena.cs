@@ -232,5 +232,14 @@ namespace CpPizzeria
             dtpFecha.Value = DateTime.Today;
         }
 
+        private void txtComentario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

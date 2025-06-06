@@ -267,5 +267,10 @@ namespace CpPizzeria
                 dgvLista.DataSource = pedidos;
             }
         }
+
+        private void cboPlatillo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

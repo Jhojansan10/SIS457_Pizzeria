@@ -10,3 +10,15 @@ C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debu
 C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizze.CC9E9DDF.Up2Date
 C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.dll
 C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.pdb
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\CadPizzeria.dll.config
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\CadPizzeria.dll
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\CadPizzeria.pdb
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\EntityFramework.dll
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\EntityFramework.SqlServer.dll
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\EntityFramework.xml
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\bin\Debug\EntityFramework.SqlServer.xml
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.csproj.AssemblyReference.cache
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.csproj.CoreCompileInputs.cache
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizze.CC9E9DDF.Up2Date
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.dll
+D:\proyecto_457\SIS457_Pizzeria\Sis457Pizzeria\CadPizzeria\obj\Debug\CadPizzeria.pdb
