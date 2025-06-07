@@ -45,6 +45,12 @@ namespace ClnPizzeria
             using (var db = new LabPizzeriaEntities())
             {
                 var original = db.PLATILLO.Find(platillo.platillo_id);
+                if (original == null)
+                {
+                    throw new Exception("El platillo que intenta actualizar no existe.");
+                }
+
+                // Solo si original no es null, se actualiza
                 original.nombre = platillo.nombre;
                 original.descripcion = platillo.descripcion;
                 original.precio = platillo.precio;

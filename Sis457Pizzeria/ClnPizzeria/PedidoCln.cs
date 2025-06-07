@@ -11,6 +11,7 @@ namespace ClnPizzeria
         {
             using (var db = new LabPizzeriaEntities())
             {
+
                 pedido.estado = "Pendiente";
                 pedido.estado_registro = true;
                 db.PEDIDO.Add(pedido);

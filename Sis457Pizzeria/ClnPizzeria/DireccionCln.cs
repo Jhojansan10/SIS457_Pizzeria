@@ -5,79 +5,98 @@ using System.Linq;
 
 namespace ClnPizzeria
 {
-    public class DireccionCln
+    public static class DireccionCln
     {
-        public static List<object> listar()
+        /// <summary>
+        /// Trae todas las direcciones activas.
+        /// </summary>
+        public static List<object> Listar()
         {
             using (var db = new LabPizzeriaEntities())
             {
                 return db.DIRECCION
-                    .Where(d => d.estado == true)
-                    .OrderBy(d => d.USUARIO.nombre)
-                    .Select(d => new
-                    {
-                        d.direccion_id,
-                        Cliente = d.USUARIO.nombre,
-                        d.calle,
-                        d.ciudad,
-                        d.codigo_postal,
-                        d.indicaciones
-                    }).ToList<object>();
+                         .Where(d => d.estado)
+                         .OrderBy(d => d.USUARIO.nombre)
+                         .Select(d => new
+                         {
+                             d.direccion_id,
+                             Cliente = d.USUARIO.nombre,
+                             d.calle,
+                             d.ciudad,
+                             d.codigo_postal,
+                             d.indicaciones
+                         })
+                         .ToList<object>();
             }
         }
 
-        public static List<object> buscar(string criterio)
+        /// <summary>
+        /// Busca direcciones por nombre de cliente o ciudad.
+        /// </summary>
+        public static List<object> Buscar(string criterio)
         {
+            criterio = criterio.ToLower().Trim();
             using (var db = new LabPizzeriaEntities())
             {
                 return db.DIRECCION
-                    .Where(d => d.estado == true &&
-                        (d.USUARIO.nombre.ToLower().Contains(criterio.ToLower()) ||
-                         d.ciudad.ToLower().Contains(criterio.ToLower())))
-                    .OrderBy(d => d.USUARIO.nombre)
-                    .Select(d => new
-                    {
-                        d.direccion_id,
-                        Cliente = d.USUARIO.nombre,
-                        d.calle,
-                        d.ciudad,
-                        d.codigo_postal,
-                        d.indicaciones
-                    }).ToList<object>();
+                         .Where(d => d.estado &&
+                                     (d.USUARIO.nombre.ToLower().Contains(criterio) ||
+                                      d.ciudad.ToLower().Contains(criterio)))
+                         .OrderBy(d => d.USUARIO.nombre)
+                         .Select(d => new
+                         {
+                             d.direccion_id,
+                             Cliente = d.USUARIO.nombre,
+                             d.calle,
+                             d.ciudad,
+                             d.codigo_postal,
+                             d.indicaciones
+                         })
+                         .ToList<object>();
             }
         }
 
-        public static int insertar(DIRECCION direccion)
+        /// <summary>
+        /// Inserta una nueva dirección y retorna su ID.
+        /// </summary>
+        public static int Insertar(DIRECCION direccion)
         {
             using (var db = new LabPizzeriaEntities())
             {
-                direccion.estado = true;
                 db.DIRECCION.Add(direccion);
                 db.SaveChanges();
                 return direccion.direccion_id;
             }
         }
 
-        public static void actualizar(DIRECCION direccion)
+        /// <summary>
+        /// Actualiza los datos de una dirección existente.
+        /// </summary>
+        public static void Actualizar(DIRECCION direccion)
         {
             using (var db = new LabPizzeriaEntities())
             {
-                var original = db.DIRECCION.Find(direccion.direccion_id);
-                original.usuario_id = direccion.usuario_id;
-                original.calle = direccion.calle;
-                original.ciudad = direccion.ciudad;
-                original.codigo_postal = direccion.codigo_postal;
-                original.indicaciones = direccion.indicaciones;
+                var orig = db.DIRECCION.Find(direccion.direccion_id);
+                if (orig == null) return;
+                orig.usuario_id = direccion.usuario_id;
+                orig.calle = direccion.calle;
+                orig.ciudad = direccion.ciudad;
+                orig.codigo_postal = direccion.codigo_postal;
+                orig.indicaciones = direccion.indicaciones;
                 db.SaveChanges();
             }
         }
 
-        public static void eliminar(int id)
+        /// <summary>
+        /// Marca una dirección como inactiva (eliminación lógica).
+        /// </summary>
+        public static void Eliminar(int idDireccion)
         {
             using (var db = new LabPizzeriaEntities())
             {
-                var direccion = db.DIRECCION.Find(id);
-                direccion.estado = false;
+                var d = db.DIRECCION.Find(idDireccion);
+                if (d == null) return;
+                d.estado = false;
                 db.SaveChanges();
             }
         }

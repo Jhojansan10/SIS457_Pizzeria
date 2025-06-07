@@ -57,7 +57,7 @@ namespace CpPizzeria
             dgvLista.DataSource = usuarios;
         }
 
-        private void dgvLista_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -179,5 +179,6 @@ namespace CpPizzeria
 
             dgvLista.DataSource = usuarios;
         }
+
     }
 }

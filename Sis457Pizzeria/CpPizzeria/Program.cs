@@ -14,10 +14,9 @@ namespace CpPizzeria
         [STAThread]
         static void Main()
         {
-            Application.Run(new FrmLogin());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPlatillo());
+            Application.Run(new FrmLogin());
         }
     }
 }

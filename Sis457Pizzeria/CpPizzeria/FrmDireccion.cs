@@ -1,160 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CadPizzeria;
+﻿using CadPizzeria;
 using ClnPizzeria;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace CpPizzeria
 {
     public partial class FrmDireccion : Form
     {
-        private bool esNuevo = false;
-        private int idDireccion = 0;
+        private bool esNuevo;
+        private int idSeleccionado;
 
         public FrmDireccion()
         {
             InitializeComponent();
+
+            // ————— Ajustes de diseño en tiempo de ejecución —————
+            // Ocupa todo el espacio de su contenedor
+            dgvDirecciones.Dock = DockStyle.Fill;
+            // Que las filas se seleccionen completas
+            dgvDirecciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDirecciones.MultiSelect = false;
+            // Traerlo por encima de cualquier otro control (p. ej. panel amarillo)
+            dgvDirecciones.BringToFront();
+
+            // Suscribimos el evento que rellena idSeleccionado + campos
+            dgvDirecciones.SelectionChanged += dgvDirecciones_SelectionChanged;
         }
 
         private void FrmDireccion_Load(object sender, EventArgs e)
         {
-            cargarClientes();
-            listar();
+            CargarClientes();
+            RefrescarGrilla();
+            SeleccionarPrimeraFila();
+            EstadoCampos(false);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cargarClientes()
+        private void CargarClientes()
         {
             using (var db = new LabPizzeriaEntities())
             {
-                var clientes = db.USUARIO
-                    .Where(c => c.estado == true && c.rol == "Cliente")
-                    .Select(c => new { c.usuario_id, c.nombre })
+                var lista = db.USUARIO
+                    .Where(u => u.estado && u.rol == "Cliente")
+                    .Select(u => new { u.usuario_id, u.nombre })
                     .ToList();
 
-                cboCliente.DataSource = clientes;
+                cboCliente.DataSource = lista;
                 cboCliente.DisplayMember = "nombre";
                 cboCliente.ValueMember = "usuario_id";
                 cboCliente.SelectedIndex = -1;
             }
         }
 
-        private void listar()
+        private void RefrescarGrilla()
         {
-            dgvDirecciones.DataSource = DireccionCln.listar();
+            dgvDirecciones.DataSource = DireccionCln.Listar();
+            if (dgvDirecciones.Columns["direccion_id"] != null)
+                dgvDirecciones.Columns["direccion_id"].Visible = false;
+            dgvDirecciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void SeleccionarPrimeraFila()
         {
-            string criterio = txtBuscar.Text.Trim();
-            if (criterio == "")
-                listar();
-            else
-                dgvDirecciones.DataSource = DireccionCln.buscar(criterio);
-        }
-        
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            limpiarFormulario();
-            esNuevo = true;
-            cboCliente.Focus();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (idDireccion == 0)
+            if (dgvDirecciones.Rows.Count > 0)
             {
-                MessageBox.Show("Seleccione una dirección para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            esNuevo = false;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (idDireccion == 0)
-            {
-                MessageBox.Show("Seleccione una dirección para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (MessageBox.Show("¿Está seguro de eliminar esta dirección?", "::: PIZZERIA :::",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                DireccionCln.eliminar(idDireccion);
-                MessageBox.Show("Dirección eliminada correctamente", "::: PIZZERIA :::", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                listar();
-                limpiarFormulario();
+                dgvDirecciones.Rows[0].Selected = true;
+                // Dispara SelectionChanged y carga los campos
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void EstadoCampos(bool editando)
         {
-            if (cboCliente.SelectedIndex == -1 ||
-        string.IsNullOrWhiteSpace(txtCalle.Text) ||
-        string.IsNullOrWhiteSpace(txtCiudad.Text) ||
-        string.IsNullOrWhiteSpace(txtCodigoPostal.Text))
-            {
-                MessageBox.Show("Complete los campos obligatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            cboCliente.Enabled = editando;
+            txtCalle.Enabled = editando;
+            txtCiudad.Enabled = editando;
+            txtCodigoPostal.Enabled = editando;
+            txtIndicaciones.Enabled = editando;
 
-            var direccion = new DIRECCION
-            {
-                usuario_id = Convert.ToInt32(cboCliente.SelectedValue),
-                calle = txtCalle.Text.Trim(),
-                ciudad = txtCiudad.Text.Trim(),
-                codigo_postal = txtCodigoPostal.Text.Trim(),
-                indicaciones = txtIndicaciones.Text.Trim()
-            };
+            btnGuardar.Enabled = editando;
+            btnCancelar.Enabled = editando;
 
-            if (esNuevo)
-                DireccionCln.insertar(direccion);
-            else
-            {
-                direccion.direccion_id = idDireccion;
-                DireccionCln.actualizar(direccion);
-            }
+            btnNuevo.Enabled = !editando;
+            btnEditar.Enabled = !editando && idSeleccionado != 0;
+            btnEliminar.Enabled = !editando && idSeleccionado != 0;
 
-            MessageBox.Show("Dirección guardada correctamente.", "::: PIZZERIA :::", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            listar();
-            limpiarFormulario();
+            btnBuscar.Enabled = !editando;
+            txtBuscar.Enabled = !editando;
+            dgvDirecciones.Enabled = !editando;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void LimpiarFormulario()
         {
-            limpiarFormulario();
-        }
-
-        private void dgvDirecciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                idDireccion = Convert.ToInt32(dgvDirecciones.Rows[e.RowIndex].Cells["direccion_id"].Value);
-                cboCliente.Text = dgvDirecciones.Rows[e.RowIndex].Cells["Cliente"].Value.ToString();
-                txtCalle.Text = dgvDirecciones.Rows[e.RowIndex].Cells["calle"].Value.ToString();
-                txtCiudad.Text = dgvDirecciones.Rows[e.RowIndex].Cells["ciudad"].Value.ToString();
-                txtCodigoPostal.Text = dgvDirecciones.Rows[e.RowIndex].Cells["codigo_postal"].Value.ToString();
-                txtIndicaciones.Text = dgvDirecciones.Rows[e.RowIndex].Cells["indicaciones"].Value.ToString();
-            }
-        }
-
-        private void limpiarFormulario()
-        {
-            idDireccion = 0;
+            idSeleccionado = 0;
             esNuevo = false;
             cboCliente.SelectedIndex = -1;
             txtCalle.Clear();
@@ -163,5 +100,138 @@ namespace CpPizzeria
             txtIndicaciones.Clear();
         }
 
+        private bool ValidarCampos()
+        {
+            if (cboCliente.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(txtCalle.Text) ||
+                string.IsNullOrWhiteSpace(txtCiudad.Text) ||
+                string.IsNullOrWhiteSpace(txtCodigoPostal.Text))
+            {
+                MessageBox.Show("Complete todos los campos obligatorios.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void dgvDirecciones_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDirecciones.CurrentRow == null ||
+                dgvDirecciones.CurrentRow.IsNewRow)
+                return;
+
+            // Capturamos el ID
+            var row = dgvDirecciones.CurrentRow;
+            idSeleccionado = Convert.ToInt32(row.Cells["direccion_id"].Value);
+
+            // Habilitamos botones
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+
+            // —— Aquí rellenamos los campos del formulario ——
+            cboCliente.Text = row.Cells["Cliente"].Value.ToString();
+            txtCalle.Text = row.Cells["calle"].Value.ToString();
+            txtCiudad.Text = row.Cells["ciudad"].Value.ToString();
+            txtCodigoPostal.Text = row.Cells["codigo_postal"].Value.ToString();
+            txtIndicaciones.Text = row.Cells["indicaciones"].Value.ToString();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var criterio = txtBuscar.Text.Trim();
+            dgvDirecciones.DataSource =
+                string.IsNullOrEmpty(criterio)
+                    ? DireccionCln.Listar()
+                    : DireccionCln.Buscar(criterio);
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            esNuevo = true;
+            EstadoCampos(true);
+            cboCliente.Focus();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione una dirección para editar.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            esNuevo = false;
+            EstadoCampos(true);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione una dirección para eliminar.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("¿Seguro de eliminar esta dirección?",
+                                "::: PIZZERIA :::",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question)
+                == DialogResult.Yes)
+            {
+                DireccionCln.Eliminar(idSeleccionado);
+                MessageBox.Show("Dirección eliminada.",
+                                "::: PIZZERIA :::",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                RefrescarGrilla();
+                LimpiarFormulario();
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos()) return;
+
+            var d = new DIRECCION
+            {
+                usuario_id = (int)cboCliente.SelectedValue,
+                calle = txtCalle.Text.Trim(),
+                ciudad = txtCiudad.Text.Trim(),
+                codigo_postal = txtCodigoPostal.Text.Trim(),
+                indicaciones = txtIndicaciones.Text.Trim(),
+                fecha_registro = DateTime.Now,
+                estado = true
+            };
+
+            if (esNuevo)
+                DireccionCln.Insertar(d);
+            else
+            {
+                d.direccion_id = idSeleccionado;
+                DireccionCln.Actualizar(d);
+            }
+
+            MessageBox.Show("Dirección guardada correctamente.",
+                            "::: PIZZERIA :::",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            RefrescarGrilla();
+            LimpiarFormulario();
+            EstadoCampos(false);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            EstadoCampos(false);
+        }
+
+        private void dgvDirecciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

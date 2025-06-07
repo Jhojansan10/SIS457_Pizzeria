@@ -36,6 +36,8 @@ namespace CpPizzeria
         private void listar()
         {
             dgvLista.DataSource = PlatilloCln.listar();
+            if (dgvLista.Columns["platillo_id"] != null)
+                dgvLista.Columns["platillo_id"].Visible = false;
         }
 
         private void limpiar()
@@ -141,6 +143,7 @@ namespace CpPizzeria
         {
             if (!validar()) return;
 
+
             var platillo = new PLATILLO
             {
                 nombre = txtNombre.Text.Trim(),
@@ -156,6 +159,8 @@ namespace CpPizzeria
                 PlatilloCln.insertar(platillo);
             else
             {
+                MessageBox.Show("ID platillo a actualizar: " + idPlatillo);
+
                 platillo.platillo_id = idPlatillo;
                 PlatilloCln.actualizar(platillo);
             }
@@ -170,7 +175,7 @@ namespace CpPizzeria
 
         }
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
