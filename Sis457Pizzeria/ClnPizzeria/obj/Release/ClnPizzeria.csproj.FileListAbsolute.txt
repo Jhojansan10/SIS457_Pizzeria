@@ -1,0 +1,15 @@
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\ClnPizzeria.dll.config
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\ClnPizzeria.dll
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\ClnPizzeria.pdb
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\CadPizzeria.dll
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\EntityFramework.dll
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\CadPizzeria.pdb
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\CadPizzeria.dll.config
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\EntityFramework.xml
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\obj\Release\ClnPizzeria.csproj.AssemblyReference.cache
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\obj\Release\ClnPizzeria.csproj.CoreCompileInputs.cache
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\obj\Release\ClnPizze.361206D7.Up2Date
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\obj\Release\ClnPizzeria.dll
+C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\ClnPizzeria\obj\Release\ClnPizzeria.pdb
