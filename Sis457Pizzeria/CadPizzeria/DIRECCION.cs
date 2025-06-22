@@ -12,25 +12,15 @@ namespace CadPizzeria
     using System;
     using System.Collections.Generic;
     
-    public partial class DIRECCION
+    public partial class Direccion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DIRECCION()
-        {
-            this.PEDIDO = new HashSet<PEDIDO>();
-        }
-    
-        public int direccion_id { get; set; }
-        public int usuario_id { get; set; }
+        public int id { get; set; }
+        public int idCliente { get; set; }
         public string calle { get; set; }
-        public string ciudad { get; set; }
-        public string codigo_postal { get; set; }
         public string indicaciones { get; set; }
-        public System.DateTime fecha_registro { get; set; }
-        public bool estado { get; set; }
+        public Nullable<System.DateTime> fechaRegistro { get; set; }
+        public Nullable<int> estado { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PEDIDO> PEDIDO { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }

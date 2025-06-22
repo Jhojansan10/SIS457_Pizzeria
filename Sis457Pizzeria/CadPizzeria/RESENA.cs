@@ -12,17 +12,17 @@ namespace CadPizzeria
     using System;
     using System.Collections.Generic;
     
-    public partial class RESENA
+    public partial class Resena
     {
-        public int resena_id { get; set; }
-        public int usuario_id { get; set; }
-        public int pedido_id { get; set; }
-        public byte calificacion { get; set; }
+        public int id { get; set; }
+        public int idCliente { get; set; }
+        public int idPedido { get; set; }
+        public int calificacion { get; set; }
         public string comentario { get; set; }
-        public System.DateTime fecha { get; set; }
-        public bool estado_registro { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
+        public Nullable<int> estado { get; set; }
     
-        public virtual PEDIDO PEDIDO { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Pedido Pedido { get; set; }
     }
 }

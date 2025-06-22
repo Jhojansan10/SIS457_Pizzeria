@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CadPizzeria.UsuarioCliente>
+
+@{
+    ViewData["Title"] = "Lista de Usuarios Clientes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Crear" class="btn btn-primary">Crear nuevo usuario</a>
+</p>
+
+<form method="get">
+    <div class="mb-3">
+        <input type="text" name="filtro" class="form-control" placeholder="Buscar por usuario..." value="@ViewBag.Filtro" />
+    </div>
+    <button type="submit" class="btn btn-secondary mb-3">Buscar</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Usuario</th>
+            <th>Fecha Registro</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Cliente?.nombres</td>
+                <td>@item.usuarioLogin</td>
+                <td>@item.fechaRegistro?.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

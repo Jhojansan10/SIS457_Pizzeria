@@ -55,11 +55,6 @@ namespace CpPizzeria
             new FrmPedido().ShowDialog();
         }
 
-        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FrmPago().ShowDialog();
-        }
-
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmUsuario().ShowDialog();
@@ -78,21 +73,6 @@ namespace CpPizzeria
         private void verReseñasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmResena().ShowDialog();
-        }
-
-        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FrmReporteVentas().ShowDialog();
-        }
-
-        private void pedidosPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FrmPedidosPorUsuario().ShowDialog();
-        }
-
-        private void platillosMásVendidosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FrmPlatillosMasVendidos().ShowDialog();
         }
 
         private USUARIO usuarioLogueado;
@@ -122,14 +102,12 @@ namespace CpPizzeria
 
             // Ejemplo: desactivar todo primero
             administraciónToolStripMenuItem.Visible = false;
-            reportesToolStripMenuItem.Visible = false;
             reseñasToolStripMenuItem.Visible = false;
 
             // Activar según rol
             if (rol == "admin")
             {
                 administraciónToolStripMenuItem.Visible = true;
-                reportesToolStripMenuItem.Visible = true;
                 reseñasToolStripMenuItem.Visible = true;
             }
             else if (rol == "cliente")
@@ -138,13 +116,17 @@ namespace CpPizzeria
             }
             else if (rol == "repartidor")
             {
-                reportesToolStripMenuItem.Visible = true;
             }
         }
 
         private void lblTitulo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void recibosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmDetallePedido().ShowDialog();
         }
     }
 }

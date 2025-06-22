@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<div class="container mt-5 text-center">
+    <h2 class="mb-4">Bienvenido a WebPizzería</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Empleado</h5>
+                    <p class="card-text">Accede al panel de gestión</p>
+                    <a asp-action="LoginEmpleado" class="btn btn-primary">Ingresar como Empleado</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-3 mt-md-0">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title">Cliente</h5>
+                    <p class="card-text">Haz tus pedidos fácilmente</p>
+                    <a asp-action="LoginCliente" class="btn btn-success">Ingresar como Cliente</a>
+                    <a asp-action="RegistrarCliente" class="btn btn-outline-success mt-2">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

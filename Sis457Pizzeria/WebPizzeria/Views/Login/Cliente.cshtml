@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Login Cliente";
+}
+
+<h2>Login Cliente</h2>
+
+<form asp-action="Cliente" method="post">
+    <div class="mb-3">
+        <label class="form-label">Usuario</label>
+        <input name="usuarioLogin" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Clave</label>
+        <input name="clave" type="password" class="form-control" />
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>

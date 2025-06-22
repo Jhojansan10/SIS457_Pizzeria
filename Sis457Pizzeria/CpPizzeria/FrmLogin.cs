@@ -9,14 +9,13 @@ namespace CpPizzeria
         public FrmLogin()
         {
             InitializeComponent();
+            //txtUsuario.Text = Util.Encrypt("hola123");
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
 
         private bool validar()
         {
@@ -24,13 +23,12 @@ namespace CpPizzeria
             erpUsuario.SetError(txtUsuario, "");
             erpClave.SetError(txtClave, "");
 
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            if (string.IsNullOrEmpty(txtUsuario.Text))
             {
-                erpUsuario.SetError(txtUsuario, "El correo es obligatorio");
+                erpUsuario.SetError(txtUsuario, "El usuario es obligatorio");
                 esValido = false;
             }
-
-            if (string.IsNullOrWhiteSpace(txtClave.Text))
+            if (string.IsNullOrEmpty(txtClave.Text))
             {
                 erpClave.SetError(txtClave, "La contraseña es obligatoria");
                 esValido = false;
@@ -41,17 +39,12 @@ namespace CpPizzeria
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            string hash = Util.Encrypt("admin123");
-
             if (validar())
             {
-
-                string claveEncriptada = Util.Encrypt(txtClave.Text);
-                MessageBox.Show("Clave enviada (hash): " + claveEncriptada);
-
-
-                var usuario = UsuarioCln.validar(txtUsuario.Text, claveEncriptada);
-
+                var usuario = UsuarioCln.validar(
+                    txtUsuario.Text,
+                    Util.Encrypt(txtClave.Text)
+                );
                 if (usuario != null)
                 {
                     Util.usuario = usuario;
@@ -63,15 +56,25 @@ namespace CpPizzeria
                 }
                 else
                 {
-                    MessageBox.Show("Correo y/o contraseña incorrectos", "::: PIZZERIA - AVISO :::",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "Usuario y/o contraseña incorrectos",
+                        "::: PIZZERIA - AVISO :::",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 }
             }
         }
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter) btnIngresar.PerformClick();
+            if (e.KeyChar == (char)Keys.Enter)
+                btnIngresar.PerformClick();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            // Opcional: inicializaciones al cargar el form
         }
     }
 }

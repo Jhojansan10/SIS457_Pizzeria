@@ -1,0 +1,33 @@
+﻿@model CadPizzeria.Pedido
+
+<div>
+    <h5>Recibo de Pedido #@Model.id</h5>
+    <p><strong>Cliente:</strong> @Model.Cliente.nombres @Model.Cliente.primerApellido</p>
+    <p><strong>Fecha:</strong> @Model.fechaPedido?.ToString("dd/MM/yyyy HH:mm")</p>
+    <p><strong>Modo de entrega:</strong> @Model.modoEntrega</p>
+    <p><strong>Estado:</strong> @Model.estadoEntrega</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model.DetallePedido)
+            {
+                <tr>
+                    <td>@d.Producto.descripcion</td>
+                    <td>@d.precioUnitario.ToString("0.00") Bs</td>
+                    <td>@d.cantidad</td>
+                    <td>@d.total.ToString("0.00") Bs</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h5 class="text-end">Total: <strong>@Model.total.ToString("0.00") Bs</strong></h5>
+</div>

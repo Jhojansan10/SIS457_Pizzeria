@@ -1,0 +1,65 @@
+﻿@model CadPizzeria.Usuario
+
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Crear">
+    <div class="mb-3">
+        <label asp-for="idEmpleado" class="form-label">Empleado</label>
+        <select asp-for="idEmpleado" class="form-select" id="idEmpleado" asp-items="@(ViewBag.Empleados as List<SelectListItem>)">
+            <option value="">-- Seleccione un empleado --</option>
+        </select>
+        <span asp-validation-for="idEmpleado" class="text-danger"></span>
+        <small id="EmpleadoError" class="text-danger d-none">
+            Este empleado ya tiene un usuario asignado.
+        </small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="usuarioLogin" class="form-label">Usuario</label>
+        <input asp-for="usuarioLogin" class="form-control" />
+        <span asp-validation-for="usuarioLogin" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="clave" class="form-label">Clave</label>
+        <input asp-for="clave" class="form-control" type="password" />
+        <span asp-validation-for="clave" class="text-danger"></span>
+    </div>
+
+    <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+            $("#idEmpleado").change(function () {
+                const idEmpleado = $(this).val();
+
+                if (!idEmpleado) {
+                    $("#EmpleadoError").addClass("d-none");
+                    $("#btnGuardar").prop("disabled", false);
+                    return;
+                }
+
+                $.get("/Usuario/ValidarEmpleado", { idEmpleado: idEmpleado }, function (data) {
+                    if (data.existe) {
+                        $("#EmpleadoError").removeClass("d-none");
+                        $("#btnGuardar").prop("disabled", true);
+                    } else {
+                        $("#EmpleadoError").addClass("d-none");
+                        $("#btnGuardar").prop("disabled", false);
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,32 @@
+﻿@model CadPizzeria.UsuarioCliente
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Editar Usuario Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Editar">
+    <input type="hidden" asp-for="id" />
+
+    <div class="mb-3">
+        <label>Cliente</label>
+        <select asp-for="idCliente" class="form-select"
+                asp-items="ViewBag.Clientes as List<SelectListItem>">
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Usuario</label>
+        <input asp-for="usuarioLogin" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Clave</label>
+        <input asp-for="clave" class="form-control" type="password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

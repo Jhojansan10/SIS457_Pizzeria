@@ -1,0 +1,26 @@
+﻿@model CadPizzeria.Pago
+
+@{
+    ViewData["Title"] = "Registrar pago";
+}
+
+<h2>Registrar nuevo método de pago</h2>
+
+<form asp-action="Crear" method="post">
+    <div class="form-group">
+        <label asp-for="metodoPago" class="control-label">Método de Pago</label>
+        <input asp-for="metodoPago" class="form-control" />
+        <span asp-validation-for="metodoPago" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="estado" value="1" />
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

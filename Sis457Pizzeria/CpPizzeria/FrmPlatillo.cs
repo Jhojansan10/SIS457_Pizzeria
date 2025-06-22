@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CadPizzeria;
@@ -17,6 +17,25 @@ namespace CpPizzeria
             InitializeComponent();
         }
 
+        private void FrmPlatillo_Load(object sender, EventArgs e)
+        {
+            // Ajustamos al modo listado
+            this.Size = new Size(835, 362);
+            listar();
+            cargarCategorias();
+        }
+
+        private void listar()
+        {
+            var lista = PlatilloCln.listar();
+            dgvLista.DataSource = lista;
+            if (dgvLista.Columns["platillo_id"] != null)
+                dgvLista.Columns["platillo_id"].Visible = false;
+
+            btnEditar.Enabled = lista.Count > 0;
+            btnEliminar.Enabled = lista.Count > 0;
+        }
+
         private void cargarCategorias()
         {
             using (var db = new LabPizzeriaEntities())
@@ -31,13 +50,6 @@ namespace CpPizzeria
                 cboCategoria.ValueMember = "categoria_id";
                 cboCategoria.SelectedIndex = -1;
             }
-        }
-
-        private void listar()
-        {
-            dgvLista.DataSource = PlatilloCln.listar();
-            if (dgvLista.Columns["platillo_id"] != null)
-                dgvLista.Columns["platillo_id"].Visible = false;
         }
 
         private void limpiar()
@@ -65,9 +77,9 @@ namespace CpPizzeria
                 esValido = false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtPrecio.Text))
+            if (!decimal.TryParse(txtPrecio.Text.Trim(), out decimal pr) || pr < 0)
             {
-                erpPrecio.SetError(txtPrecio, "El precio es obligatorio");
+                erpPrecio.SetError(txtPrecio, "Precio inválido o menor a 0");
                 esValido = false;
             }
 
@@ -80,58 +92,79 @@ namespace CpPizzeria
             return esValido;
         }
 
-
-        private void FrmPlatillo_Load_1(object sender, EventArgs e)
-        {
-            cargarCategorias();
-            listar();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            // Filtrar en memoria según lo ingresado
             string criterio = txtBuscar.Text.Trim().ToLower();
-
-            var platillos = PlatilloCln.listar()
-                .Where(p => p.nombre.ToLower().Contains(criterio) ||
-                            p.descripcion.ToLower().Contains(criterio))
+            var filtrados = PlatilloCln.listar()
+                .Where(p =>
+                    p.nombre.ToLower().Contains(criterio) ||
+                    p.descripcion.ToLower().Contains(criterio)
+                )
                 .ToList();
 
-            dgvLista.DataSource = platillos;
+            dgvLista.DataSource = filtrados;
+            btnEditar.Enabled = filtrados.Count > 0;
+            btnEliminar.Enabled = filtrados.Count > 0;
         }
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            limpiar();
             esNuevo = true;
+            this.Size = new Size(835, 487);
+            limpiar();
             txtNombre.Focus();
         }
 
-        private void btnEditar_Click_1(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (idPlatillo == 0)
+            if (dgvLista.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione un platillo para editar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione un platillo para editar",
+                    "::: PIZZERIA - AVISO :::",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
             esNuevo = false;
+            this.Size = new Size(835, 487);
+
+            idPlatillo = Convert.ToInt32(dgvLista.CurrentRow.Cells["platillo_id"].Value);
+            var p = PlatilloCln.obtenerUno(idPlatillo);
+
+            txtNombre.Text = p.nombre;
+            txtDescripcion.Text = p.descripcion;
+            txtPrecio.Text = p.precio.ToString();
+            txtTiempo.Text = p.tiempo_preparacion.ToString();
+            txtImagen.Text = p.imagen_url;
+            cboCategoria.SelectedValue = p.categoria_id;
+            chkEstado.Checked = p.estado;
+
+            txtNombre.Focus();
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idPlatillo == 0)
             {
-                MessageBox.Show("Seleccione un platillo para eliminar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione un platillo para eliminar",
+                    "::: PIZZERIA - AVISO :::",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro de eliminar este platillo?", "::: PIZZERIA :::",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(
+                    $"¿Está seguro de eliminar el platillo {txtNombre.Text}?",
+                    "::: PIZZERIA - AVISO :::",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                ) == DialogResult.Yes)
             {
                 PlatilloCln.eliminar(idPlatillo);
                 listar();
@@ -139,10 +172,9 @@ namespace CpPizzeria
             }
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!validar()) return;
-
 
             var platillo = new PLATILLO
             {
@@ -156,51 +188,44 @@ namespace CpPizzeria
             };
 
             if (esNuevo)
+            {
                 PlatilloCln.insertar(platillo);
+            }
             else
             {
-                MessageBox.Show("ID platillo a actualizar: " + idPlatillo);
-
                 platillo.platillo_id = idPlatillo;
                 PlatilloCln.actualizar(platillo);
             }
 
             listar();
+            this.Size = new Size(835, 362);
             limpiar();
-            esNuevo = false;
+            MessageBox.Show(
+                "Platillo guardado correctamente",
+                "::: PIZZERIA - AVISO :::",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Size = new Size(835, 362);
+            limpiar();
         }
 
         private void dgvLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                idPlatillo = Convert.ToInt32(dgvLista.Rows[e.RowIndex].Cells["platillo_id"].Value);
-                txtNombre.Text = dgvLista.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                txtDescripcion.Text = dgvLista.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
-                txtPrecio.Text = dgvLista.Rows[e.RowIndex].Cells["precio"].Value.ToString();
-                txtTiempo.Text = dgvLista.Rows[e.RowIndex].Cells["tiempo_preparacion"].Value.ToString();
-                txtImagen.Text = dgvLista.Rows[e.RowIndex].Cells["imagen_url"].Value.ToString();
-                cboCategoria.Text = dgvLista.Rows[e.RowIndex].Cells["categoria"].Value.ToString();
-                chkEstado.Checked = Convert.ToBoolean(dgvLista.Rows[e.RowIndex].Cells["estado"].Value);
-            }
+            if (e.RowIndex < 0) return;
+            idPlatillo = Convert.ToInt32(dgvLista.Rows[e.RowIndex].Cells["platillo_id"].Value);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblTitulo_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void gbxLista_Enter(object sender, EventArgs e)
         {
 
         }

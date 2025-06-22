@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CadPizzeria.Cliente>
+
+@{
+    ViewData["Title"] = "Lista de clientes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Crear" class="btn btn-primary">Crear nuevo cliente</a>
+</p>
+
+<p class="mt-2">
+    ¿No tienes cuenta? <a asp-action="RegistroCliente">Regístrate aquí</a>
+</p>
+
+
+<form method="get" asp-action="Index" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="filtro" class="form-control" placeholder="Buscar por CI o nombre" />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>CI</th>
+            <th>Nombre completo</th>
+            <th>Celular</th>
+            <th>Dirección</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.cedulaIdentidad</td>
+                <td>@($"{item.nombres} {item.primerApellido} {item.segundoApellido}")</td>
+                <td>@item.celular</td>
+                <td>@item.direccion</td>
+                <td>@(item.estado == 1 ? "Activo" : "Inactivo")</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

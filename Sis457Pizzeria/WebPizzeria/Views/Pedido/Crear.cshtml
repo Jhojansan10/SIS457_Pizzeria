@@ -1,0 +1,262 @@
+﻿@model CadPizzeria.Pedido
+
+@{
+    ViewData["Title"] = "Crear Pedido";
+}
+
+<h2>Crear Pedido</h2>
+
+<form asp-action="Crear" method="post" id="formPedido">
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label>CI del Cliente</label>
+            <input type="text" id="txtCI" name="cedulaIdentidad" class="form-control" autocomplete="off" />
+        </div>
+        <div class="col-md-6">
+            <label>Nombre completo</label>
+            <input type="text" id="txtNombre" name="nombreCompleto" class="form-control" />
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>Productos</h4>
+    <div class="row mb-2">
+        <div class="col-md-4">
+            <select id="cboProducto" class="form-select">
+                <option value="">-- Seleccionar producto --</option>
+                @foreach (var item in ViewBag.Productos)
+                {
+                    <option value="@item.id" data-stock="@item.stock" data-precio="@item.precioVenta">@item.nombre</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="number" id="txtCantidad" class="form-control" placeholder="Cantidad" min="1" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="txtStock" class="form-control" placeholder="Stock" readonly />
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-success" id="btnAgregar">Agregar</button>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <table class="table table-bordered" id="tablaDetalle">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <hr />
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Total:</label>
+            <input type="text" id="txtTotal" class="form-control" readonly />
+        </div>
+        <div class="col-md-3">
+            <label>Método de Pago</label>
+            <select id="cboMetodoPago" name="metodoPago" class="form-select">
+                <option value="Efectivo">Efectivo</option>
+                <option value="QR">QR</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>Monto recibido</label>
+            <input type="number" name="montoRecibido" id="txtRecibido" class="form-control" min="0" />
+            <small id="msgErrorPago" class="text-danger d-none">El monto recibido es menor al total.</small>
+        </div>
+        <div class="col-md-3">
+            <label>Cambio</label>
+            <input type="text" id="txtCambio" class="form-control" readonly />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Pedido</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <script>
+        let productos = [];
+        let editandoId = null;
+
+        $(document).ready(function () {
+            $("#cboProducto").change(function () {
+                const id = parseInt($(this).val());
+                const stockOriginal = parseInt($("#cboProducto option:selected").data("stock")) || 0;
+                const existente = productos.find(p => p.idProducto === id);
+                const agregado = existente ? existente.cantidad : 0;
+                const disponible = stockOriginal - agregado;
+
+                $("#txtStock").val(disponible);
+                $("#txtCantidad").val('');
+                $("#txtCantidad").attr("max", stockOriginal);
+                $("#btnAgregar").text("Agregar");
+                editandoId = null;
+            });
+
+            $("#btnAgregar").click(function () {
+                const id = parseInt($("#cboProducto").val());
+                const nombre = $("#cboProducto option:selected").text();
+                const precio = parseFloat($("#cboProducto option:selected").data("precio"));
+                const stockOriginal = parseInt($("#cboProducto option:selected").data("stock"));
+                const nuevaCantidad = parseInt($("#txtCantidad").val());
+
+                if (!id || isNaN(nuevaCantidad) || nuevaCantidad <= 0) {
+                    alert("Selecciona un producto y una cantidad válida.");
+                    return;
+                }
+
+                const index = productos.findIndex(p => p.idProducto === id);
+                const existente = productos[index];
+                const cantidadComparar = (editandoId === id) ? nuevaCantidad : (existente?.cantidad || 0) + nuevaCantidad;
+
+                if (cantidadComparar > stockOriginal) {
+                    const restante = stockOriginal - (existente?.cantidad || 0);
+                    alert(`Solo hay ${restante} unidades disponibles.`);
+                    return;
+                }
+
+                const subtotal = nuevaCantidad * precio;
+
+                if (existente && editandoId === id) {
+                    existente.cantidad = nuevaCantidad;
+                    existente.total = subtotal;
+                    const fila = $("#tablaDetalle tbody tr").eq(index);
+                    fila.find("td:eq(2)").text(nuevaCantidad);
+                    fila.find("td:eq(3)").text(subtotal.toFixed(2));
+                } else if (!existente) {
+                    productos.push({ idProducto: id, cantidad: nuevaCantidad, precioUnitario: precio, total: subtotal });
+                    const fila = `<tr data-id="${id}">
+                        <td>${nombre}</td>
+                        <td>${precio.toFixed(2)}</td>
+                        <td>${nuevaCantidad}</td>
+                        <td>${subtotal.toFixed(2)}</td>
+                        <td><button type="button" class="btn btn-danger btn-sm btnEliminar">X</button></td>
+                    </tr>`;
+                    $("#tablaDetalle tbody").append(fila);
+                } else {
+                    alert("Este producto ya fue agregado. Haz clic en la fila si deseas editarlo.");
+                    return;
+                }
+
+                actualizarTotal();
+                limpiarCampos();
+            });
+
+            $("#tablaDetalle").on("click", ".btnEliminar", function () {
+                const index = $(this).closest("tr").index();
+                productos.splice(index, 1);
+                $(this).closest("tr").remove();
+                actualizarTotal();
+                limpiarCampos();
+            });
+
+            $("#tablaDetalle").on("click", "tr", function () {
+                const id = parseInt($(this).data("id"));
+                const producto = productos.find(p => p.idProducto === id);
+                if (producto) {
+                    $("#cboProducto").val(id).trigger("change");
+                    $("#txtCantidad").val(producto.cantidad);
+                    editandoId = id;
+                    $("#btnAgregar").text("Actualizar");
+                }
+            });
+
+            $("#txtRecibido, #cboMetodoPago").on("input change", validarPago);
+
+            $("#formPedido").submit(function () {
+                if (productos.length === 0) {
+                    alert("Debe agregar al menos un producto.");
+                    return false;
+                }
+
+                const metodo = $("#cboMetodoPago").val();
+                const recibido = parseFloat($("#txtRecibido").val());
+                const total = parseFloat($("#txtTotal").val());
+
+                if (metodo === "Efectivo" && recibido < total) {
+                    alert("El monto ingresado es menor al total del pedido.");
+                    return false;
+                }
+
+                productos.forEach((p, i) => {
+                    $("<input>").attr({ type: "hidden", name: `detalles[${i}].idProducto`, value: p.idProducto }).appendTo("#formPedido");
+                    $("<input>").attr({ type: "hidden", name: `detalles[${i}].cantidad`, value: p.cantidad }).appendTo("#formPedido");
+                });
+
+                return true;
+            });
+
+            $("#txtCI").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Cliente/AutocompletarCI",
+                        data: { term: request.term },
+                        success: response
+                    });
+                },
+                select: function (event, ui) {
+                    $("#txtCI").val(ui.item.value);
+                    $("#txtNombre").val(ui.item.nombre);
+                    return false;
+                },
+                minLength: 2
+            });
+        });
+
+        function actualizarTotal() {
+            const total = productos.reduce((sum, p) => sum + p.total, 0);
+            $("#txtTotal").val(total.toFixed(2));
+            validarPago();
+        }
+
+        function calcularCambio() {
+            const total = parseFloat($("#txtTotal").val()) || 0;
+            const recibido = parseFloat($("#txtRecibido").val()) || 0;
+            const metodo = $("#cboMetodoPago").val();
+            $("#txtCambio").val(metodo === "Efectivo" ? Math.max(0, recibido - total).toFixed(2) : "0.00");
+        }
+
+        function validarPago() {
+            const metodo = $("#cboMetodoPago").val();
+            const recibidoStr = $("#txtRecibido").val();
+            const recibido = parseFloat(recibidoStr);
+            const total = parseFloat($("#txtTotal").val()) || 0;
+            const btnGuardar = $("button[type='submit']");
+            const msgError = $("#msgErrorPago");
+
+            if (metodo === "Efectivo" && recibidoStr !== "" && recibido < total) {
+                msgError.removeClass("d-none");
+                btnGuardar.prop("disabled", true);
+                $("#txtCambio").val("0.00");
+            } else {
+                msgError.addClass("d-none");
+                btnGuardar.prop("disabled", false);
+                calcularCambio();
+            }
+        }
+
+        function limpiarCampos() {
+            $("#txtCantidad").val('');
+            const id = parseInt($("#cboProducto").val());
+            const stockOriginal = parseInt($("#cboProducto option:selected").data("stock")) || 0;
+            const agregado = productos.find(p => p.idProducto === id)?.cantidad || 0;
+            $("#txtStock").val(stockOriginal - agregado);
+            $("#txtCantidad").attr("max", stockOriginal - agregado);
+            $("#btnAgregar").text("Agregar");
+            editandoId = null;
+        }
+    </script>
+}

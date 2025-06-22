@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cbbaea855ed49818033d87907f90389" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="FinalPizzeriaModel.CategoriaProducto" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Cliente" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.DetallePedido" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Direccion" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Empleado" Width="1.5" PointX="3.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Pago" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Pedido" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Producto" Width="1.5" PointX="5.875" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Resena" Width="1.5" PointX="11.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.Usuario" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalPizzeriaModel.UsuarioCliente" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Producto__idCate__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Direccion__idCli__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Pedido__idClient__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Resena__idClient__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__UsuarioCl__idCli__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__DetallePe__idPed__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__DetallePe__idPro__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Pedido__idRepart__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Usuario__idEmple__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Pago__idPedido__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK__Resena__idPedido__6B24EA82" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

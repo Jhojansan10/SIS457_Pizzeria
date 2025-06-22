@@ -12,31 +12,32 @@ namespace CadPizzeria
     using System;
     using System.Collections.Generic;
     
-    public partial class PEDIDO
+    public partial class Pedido
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PEDIDO()
+        public Pedido()
         {
-            this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
-            this.PAGO = new HashSet<PAGO>();
-            this.RESENA = new HashSet<RESENA>();
+            this.DetallePedido = new HashSet<DetallePedido>();
+            this.Pago = new HashSet<Pago>();
+            this.Resena = new HashSet<Resena>();
         }
     
-        public int pedido_id { get; set; }
-        public int usuario_id { get; set; }
-        public System.DateTime fecha { get; set; }
-        public string estado { get; set; }
+        public int id { get; set; }
+        public int idCliente { get; set; }
+        public Nullable<int> idRepartidor { get; set; }
+        public string modoEntrega { get; set; }
+        public string estadoEntrega { get; set; }
         public decimal total { get; set; }
-        public int direccion_id { get; set; }
-        public bool estado_registro { get; set; }
+        public Nullable<System.DateTime> fechaPedido { get; set; }
+        public Nullable<int> estado { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
-        public virtual DIRECCION DIRECCION { get; set; }
+        public virtual ICollection<DetallePedido> DetallePedido { get; set; }
+        public virtual Empleado Empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PAGO> PAGO { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
+        public virtual ICollection<Pago> Pago { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESENA> RESENA { get; set; }
+        public virtual ICollection<Resena> Resena { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿// FrmPedido.cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,64 +15,81 @@ namespace CpPizzeria
         private decimal total = 0m;
         private List<DETALLE_PEDIDO> detalles = new List<DETALLE_PEDIDO>();
 
+        // Lookup CI → usuario_id
+        private Dictionary<string, int> _clientesByNit;
+        private int _usuarioActual = 0;  // 0 = cliente nuevo
+
         public FrmPedido()
         {
             InitializeComponent();
+
+            // Eventos cliente
+            txtNit.SelectedIndexChanged += txtNit_SelectedIndexChanged;
+            txtNit.Leave += txtNit_SelectedIndexChanged;
+            btnNuevoCliente.Click += btnNuevoCliente_Click;
+
+            // Resto eventos
+            cboPlatillo.SelectedIndexChanged += cboPlatillo_SelectedIndexChanged;
+            rbtnLocal.CheckedChanged += EntregaMode_Changed;
+            rbtnDelivery.CheckedChanged += EntregaMode_Changed;
+            txtPago.TextChanged += txtPago_TextChanged;
+            btnAgregar.Click += btnAgregar_Click;
+            btnGuardar.Click += btnGuardar_Click;
+            btnCancelar.Click += btnCancelar_Click;
+            btnBuscar.Click += btnBuscar_Click;
+            btnNuevo.Click += btnNuevo_Click;
+            btnEliminar.Click += btnEliminar_Click;
         }
 
         private void FrmPedido_Load(object sender, EventArgs e)
         {
-            // 1) Carga inicial de datos
-            cargarUsuarios();
+            // Leemos la fecha una sola vez
+            DateTime ahora = DateTime.Now;
+            // Fijamos Value primero (quedará dentro del rango por defecto)
+            dtpFecha.Value = ahora;
+            // Luego reducimos el MaxDate a ese mismo instante
+            dtpFecha.MaxDate = ahora;
+
+            cargarClientes();
+            cargarDirecciones();
             cargarPlatillos();
-            listar();
-
-            // 2) Suscripción al cambio de cliente
-            cboCliente.SelectedIndexChanged += cboCliente_SelectedIndexChanged;
-
-            // 3) Arranca sin nada seleccionado (igual que platillos)
-            cboCliente.SelectedIndex = -1;
+            cargarRepartidores();
+            listarPedidos();
+            limpiar();
         }
 
-        private void cargarUsuarios()
+        #region Carga de datos
+
+        private void cargarClientes()
         {
             using (var db = new LabPizzeriaEntities())
             {
-                var usuarios = db.USUARIO
-                    .Where(u => u.estado && u.rol == "Cliente")
-                    .Select(u => new { u.usuario_id, u.nombre })
-                    .ToList();
+                var list = db.USUARIO
+                             .Where(u => u.estado && u.rol == "Cliente")
+                             .Select(u => new { u.usuario_id, u.ci, u.nombre })
+                             .ToList();
 
-                cboCliente.DisplayMember = "nombre";
-                cboCliente.ValueMember = "usuario_id";
-                cboCliente.DataSource = usuarios;
-            }
-        }
-
-        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboCliente.SelectedIndex == -1)
-            {
-                cboDireccion.DataSource = null;
-                return;
+                _clientesByNit = list.ToDictionary(x => x.ci, x => x.usuario_id);
+                txtNit.DataSource = list.Select(x => x.ci).ToList();
             }
 
-            int usuarioId = (int)cboCliente.SelectedValue;
-            cargarDirecciones(usuarioId);
+            txtNit.SelectedIndex = -1;
+            txtNit.Text = "";
+            txtNombre.Clear();
+            _usuarioActual = 0;
         }
 
-        private void cargarDirecciones(int usuarioId)
+        private void cargarDirecciones()
         {
             using (var db = new LabPizzeriaEntities())
             {
                 var lista = db.DIRECCION
-                    .Where(d => d.estado && d.usuario_id == usuarioId)
-                    .Select(d => new { d.direccion_id, d.calle })
-                    .ToList();
-
-                cboDireccion.DisplayMember = "calle";
-                cboDireccion.ValueMember = "direccion_id";
+                              .Where(d => d.estado)
+                              .Select(d => new { d.direccion_id, d.direccion })
+                              .ToList();
                 cboDireccion.DataSource = lista;
+                cboDireccion.ValueMember = "direccion_id";
+                cboDireccion.DisplayMember = "direccion";
                 cboDireccion.SelectedIndex = -1;
             }
         }
@@ -80,42 +98,111 @@ namespace CpPizzeria
         {
             using (var db = new LabPizzeriaEntities())
             {
-                var platillos = db.PLATILLO
-                    .Where(p => p.estado)
-                    .Select(p => new { p.platillo_id, p.nombre, p.precio })
-                    .ToList();
+                var pls = db.PLATILLO
+                            .Where(p => p.estado)
+                            .Select(p => new { p.platillo_id, p.nombre, p.precio })
+                            .ToList();
 
-                cboPlatillo.DisplayMember = "nombre";
                 cboPlatillo.ValueMember = "platillo_id";
-                cboPlatillo.DataSource = platillos;
+                cboPlatillo.DisplayMember = "nombre";
+                cboPlatillo.DataSource = pls;
                 cboPlatillo.SelectedIndex = -1;
             }
+        }
+
+        private void cargarRepartidores()
+        {
+            using (var db = new LabPizzeriaEntities())
+            {
+                var reps = db.USUARIO
+                             .Where(u => u.estado && u.rol == "Repartidor")
+                             .Select(u => new { u.usuario_id, u.nombre })
+                             .ToList();
+
+                cboRepartidor.ValueMember = "usuario_id";
+                cboRepartidor.DisplayMember = "nombre";
+                cboRepartidor.DataSource = reps;
+                cboRepartidor.SelectedIndex = -1;
+            }
+        }
+
+        #endregion
+
+        #region Eventos UI
+
+        private void txtNit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ci = txtNit.Text.Trim();
+            if (_clientesByNit.TryGetValue(ci, out var uid))
+            {
+                using (var db = new LabPizzeriaEntities())
+                    txtNombre.Text = db.USUARIO.Find(uid).nombre;
+                _usuarioActual = uid;
+            }
+            else
+            {
+                txtNombre.Clear();
+                _usuarioActual = 0;
+            }
+        }
+
+        private void cboPlatillo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboPlatillo.SelectedIndex >= 0 && cboPlatillo.SelectedValue != null)
+            {
+                int pid = Convert.ToInt32(cboPlatillo.SelectedValue);
+                using (var db = new LabPizzeriaEntities())
+                {
+                    var p = db.PLATILLO.Find(pid);
+                    txtPrecio.Text = p.precio.ToString("N2");
+                }
+            }
+            else
+            {
+                txtPrecio.Clear();
+            }
+        }
+
+        private void EntregaMode_Changed(object sender, EventArgs e)
+        {
+            bool esLocal = rbtnLocal.Checked;
+            cboDireccion.Enabled = !esLocal;
+            cboRepartidor.Enabled = !esLocal;
+            txtDireccionLibre.Enabled = !esLocal;
+
+            if (esLocal)
+            {
+                txtDireccionLibre.Text = "En Local";
+                cboDireccion.SelectedIndex = -1;
+            }
+            else
+            {
+                txtDireccionLibre.Clear();
+            }
+        }
+
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Para crear un cliente, introduce su NIT y Nombre y guarda el pedido.",
+                "Info", MessageBoxButtons.OK, MessageBoxIcon.Information
+            );
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (cboPlatillo.SelectedIndex == -1 ||
-                string.IsNullOrWhiteSpace(txtCantidad.Text)) return;
+               !int.TryParse(txtCantidad.Text, out int qty) ||
+                qty <= 0) return;
 
-            int platilloId = Convert.ToInt32(cboPlatillo.SelectedValue);
-            int cantidad = Convert.ToInt32(txtCantidad.Text);
-
+            int pid = Convert.ToInt32(cboPlatillo.SelectedValue);
             using (var db = new LabPizzeriaEntities())
             {
-                var platillo = db.PLATILLO.Find(platilloId);
-                var existente = detalles.FirstOrDefault(d => d.platillo_id == platilloId);
-
-                if (existente != null)
-                    existente.cantidad += cantidad;
-                else
-                    detalles.Add(new DETALLE_PEDIDO
-                    {
-                        platillo_id = platilloId,
-                        cantidad = cantidad,
-                        PLATILLO = platillo
-                    });
+                var p = db.PLATILLO.Find(pid);
+                var ex = detalles.FirstOrDefault(d => d.platillo_id == pid);
+                if (ex != null) ex.cantidad += qty;
+                else detalles.Add(new DETALLE_PEDIDO { platillo_id = pid, cantidad = qty, PLATILLO = p });
             }
-
             actualizarDetalle();
             txtCantidad.Clear();
             cboPlatillo.SelectedIndex = -1;
@@ -123,133 +210,186 @@ namespace CpPizzeria
 
         private void actualizarDetalle()
         {
-            var mostrado = detalles.Select(d => new
-            {
-                Platillo = d.PLATILLO.nombre,
-                d.cantidad,
-                Subtotal = d.cantidad * d.PLATILLO.precio
-            }).ToList();
-
-            dgvLista.DataSource = mostrado;
+            dgvDetalles.DataSource = detalles
+                .Select(d => new {
+                    Platillo = d.PLATILLO.nombre,
+                    Cantidad = d.cantidad,
+                    Subtotal = d.cantidad * d.PLATILLO.precio
+                })
+                .ToList();
             total = detalles.Sum(d => d.cantidad * d.PLATILLO.precio);
-            lblTotal.Text = $"Bs. {total:N2}";
+            lblTotal.Text = total.ToString("N2");
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void txtPago_TextChanged(object sender, EventArgs e)
         {
-            limpiar();
-            esNuevo = true;
-            cboCliente.Focus();
+            if (decimal.TryParse(txtPago.Text, out var pago) && pago >= total)
+                txtCambio.Text = (pago - total).ToString("N2");
+            else
+                txtCambio.Text = "0.00";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cboCliente.SelectedIndex == -1 ||
-                cboDireccion.SelectedIndex == -1 ||
+            if (string.IsNullOrWhiteSpace(txtNit.Text) ||
+                string.IsNullOrWhiteSpace(txtNombre.Text) ||
+               (!rbtnLocal.Checked && string.IsNullOrWhiteSpace(cboDireccion.Text)) ||
                 detalles.Count == 0)
             {
-                MessageBox.Show("Complete todos los campos requeridos",
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Complete NIT, Nombre, Dirección (si aplica) y agregue al menos un platillo.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning
+                );
                 return;
             }
 
+            // 1) Crear o reutilizar cliente
+            int usuarioId;
+            if (_usuarioActual != 0)
+            {
+                usuarioId = _usuarioActual;
+            }
+            else
+            {
+                using (var db = new LabPizzeriaEntities())
+                {
+                    var u = new USUARIO
+                    {
+                        ci = txtNit.Text.Trim(),
+                        nombre = txtNombre.Text.Trim(),
+                        rol = "Cliente",
+                        estado = true,
+                        fecha_registro = DateTime.Now,
+                        contraseña = ""
+                    };
+                    db.USUARIO.Add(u);
+                    db.SaveChanges();
+                    usuarioId = u.usuario_id;
+                }
+            }
+
+            // 2) Crear pedido
             var pedido = new PEDIDO
             {
-                usuario_id = (int)cboCliente.SelectedValue,
-                direccion_id = (int)cboDireccion.SelectedValue,
-                fecha = DateTime.Now,
+                usuario_id = usuarioId,
+                fecha = dtpFecha.Value,
                 total = total,
                 estado = chkEntregado.Checked ? "Entregado" : "Pendiente",
-                estado_registro = true
+                estado_registro = true,
+                repartidor_id = rbtnLocal.Checked
+                                 ? (int?)null
+                                 : Convert.ToInt32(cboRepartidor.SelectedValue)
             };
 
+            // 3) Dirección: Local o Delivery (existente o nueva)
+            if (rbtnLocal.Checked)
+            {
+                using (var db = new LabPizzeriaEntities())
+                {
+                    var dir = new DIRECCION
+                    {
+                        direccion = txtDireccionLibre.Text.Trim(),
+                        estado = true,
+                        fecha_registro = DateTime.Now
+                    };
+                    db.DIRECCION.Add(dir);
+                    db.SaveChanges();
+                    pedido.direccion_id = dir.direccion_id;
+                }
+            }
+            else
+            {
+                // Delivery: si seleccionó una existente
+                if (cboDireccion.SelectedIndex >= 0)
+                {
+                    pedido.direccion_id = Convert.ToInt32(cboDireccion.SelectedValue);
+                }
+                // si tecleó una nueva
+                else
+                {
+                    using (var db = new LabPizzeriaEntities())
+                    {
+                        var dir = new DIRECCION
+                        {
+                            direccion = cboDireccion.Text.Trim(),
+                            estado = true,
+                            fecha_registro = DateTime.Now
+                        };
+                        db.DIRECCION.Add(dir);
+                        db.SaveChanges();
+                        pedido.direccion_id = dir.direccion_id;
+                    }
+                }
+            }
+
+            // 4) Insertar pedido + detalles
             PedidoCln.insertar(pedido, detalles);
-            listar();
+            MessageBox.Show("Pedido guardado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listarPedidos();
             limpiar();
         }
 
+        private void listarPedidos()
+        {
+            dgvLista.DataSource = PedidoCln.listar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e) => limpiar();
+        private void btnBuscar_Click(object sender, EventArgs e) => listarPedidos();
+        private void btnNuevo_Click(object sender, EventArgs e) { limpiar(); esNuevo = true; }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idPedido == 0)
             {
-                MessageBox.Show("Seleccione un pedido para eliminar",
-                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un pedido para eliminar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (MessageBox.Show("¿Seguro de eliminar este pedido?",
-                                "::: PIZZERIA :::",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question)
-                == DialogResult.Yes)
+            if (MessageBox.Show("¿Seguro de eliminar este pedido?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (var db = new LabPizzeriaEntities())
                 {
                     var p = db.PEDIDO.Find(idPedido);
-                    p.estado = chkEntregado.Checked ? "Entregado" : "Pendiente";
-                    p.estado_registro = true;
+                    p.estado_registro = false;
                     db.SaveChanges();
                 }
-                listar();
+                listarPedidos();
                 limpiar();
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string crit = txtBuscar.Text.Trim().ToLower();
-            using (var db = new LabPizzeriaEntities())
-            {
-                dgvLista.DataSource = db.PEDIDO
-                    .Where(p => p.estado_registro &&
-                                (p.pedido_id.ToString().Contains(crit) ||
-                                 p.USUARIO.nombre.ToLower().Contains(crit) ||
-                                 p.estado.ToLower().Contains(crit)))
-                    .OrderByDescending(p => p.fecha)
-                    .Select(p => new
-                    {
-                        p.pedido_id,
-                        Cliente = p.USUARIO.nombre,
-                        Direccion = p.DIRECCION.calle,
-                        Fecha = p.fecha,
-                        Entregado = p.estado,
-                        p.total
-                    })
-                    .ToList();
-            }
-        }
-
-        private void listar()
-        {
-            using (var db = new LabPizzeriaEntities())
-            {
-                dgvLista.DataSource = db.PEDIDO
-                    .Where(p => p.estado_registro)
-                    .OrderByDescending(p => p.fecha)
-                    .Select(p => new
-                    {
-                        p.pedido_id,
-                        Cliente = p.USUARIO.nombre,
-                        Direccion = p.DIRECCION.calle,
-                        Fecha = p.fecha,
-                        Entregado = p.estado,
-                        p.total
-                    })
-                    .ToList();
-            }
-        }
-
         private void limpiar()
-{
-    cboCliente.SelectedIndex   = -1;
-    cboDireccion.DataSource    = null;
-    cboPlatillo.SelectedIndex  = -1;
-    txtCantidad.Clear();
-    detalles.Clear();
-    lblTotal.Text              = "Bs. 0.00";
-    total                      = 0m;
-    idPedido                   = 0;
-    esNuevo                    = false;
+        {
+            esNuevo = false;
+            idPedido = 0;
+            detalles.Clear();
+            dgvDetalles.DataSource = null;
+
+            // Cliente
+            txtNit.Text = "";
+            txtNit.SelectedIndex = -1;
+            txtNombre.Clear();
+            _usuarioActual = 0;
+
+            // Dirección / repartidor
+            cboDireccion.SelectedIndex = -1;
+            cboRepartidor.SelectedIndex = -1;
+            rbtnLocal.Checked = true;
+            txtDireccionLibre.Clear();
+
+            // Platillos
+            cboPlatillo.SelectedIndex = -1;
+            txtPrecio.Clear();
+            txtCantidad.Clear();
+            lblTotal.Text = "0.00";
+
+            // Pago
+            txtPago.Clear();
+            txtCambio.Text = "0.00";
+
+            // Estado
+            chkEntregado.Checked = false;
         }
+
+        #endregion
     }
 }

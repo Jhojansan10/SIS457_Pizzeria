@@ -12,14 +12,13 @@ namespace CadPizzeria
     using System;
     using System.Collections.Generic;
     
-    public partial class PAGO
+    public partial class Pago
     {
-        public int pago_id { get; set; }
-        public int pedido_id { get; set; }
-        public decimal monto_pagado { get; set; }
-        public string metodo { get; set; }
-        public System.DateTime fecha_pago { get; set; }
+        public int id { get; set; }
+        public int idPedido { get; set; }
+        public string metodoPago { get; set; }
+        public Nullable<int> estado { get; set; }
     
-        public virtual PEDIDO PEDIDO { get; set; }
+        public virtual Pedido Pedido { get; set; }
     }
 }
