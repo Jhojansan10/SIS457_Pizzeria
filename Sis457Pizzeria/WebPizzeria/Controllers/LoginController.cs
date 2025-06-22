@@ -21,9 +21,14 @@ namespace WebPizzeria.Controllers
 
             if (usuario != null)
             {
-                // Aquí puedes guardar en sesión el ID del empleado
+                // Obtener el empleado relacionado
+                var empleado = EmpleadoCln.Obtener(usuario.idEmpleado);
+
+                // Guardar en sesión
                 HttpContext.Session.SetInt32("UsuarioId", usuario.id);
-                HttpContext.Session.SetString("UsuarioNombre", usuario.Empleado.nombres);
+                HttpContext.Session.SetString("UsuarioNombre", empleado.nombres);
+                HttpContext.Session.SetString("UsuarioRol", empleado.cargo); 
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -31,10 +36,11 @@ namespace WebPizzeria.Controllers
             return View();
         }
 
+
         public IActionResult CerrarSesion()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Empleado");
+            return RedirectToAction("Empleado", "Login");
         }
 
         public IActionResult Cliente()
@@ -64,6 +70,7 @@ namespace WebPizzeria.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Cliente");
         }
+
 
         [HttpGet]
         public IActionResult RegistroCliente()

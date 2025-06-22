@@ -3,53 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{310FB923-CD4B-4613-8D8D-09698E1B8C7E}|ClnPizzeria\\ClnPizzeria.csproj|C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\clnpizzeria\\pedidocln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{310FB923-CD4B-4613-8D8D-09698E1B8C7E}|ClnPizzeria\\ClnPizzeria.csproj|solutionrelative:clnpizzeria\\pedidocln.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\pedido\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\pedido\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7321EB02-E496-4D04-9622-BC0D843080C1}|CadPizzeria\\CadPizzeria.csproj|C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\cadpizzeria\\finalpizzeriamodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{7321EB02-E496-4D04-9622-BC0D843080C1}|CadPizzeria\\CadPizzeria.csproj|solutionrelative:cadpizzeria\\finalpizzeriamodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.Cliente.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\pedido\\_recibo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\pedido\\_recibo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\pedido\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\pedido\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.UsuarioCliente.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.Usuario.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\login\\registrocliente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\login\\registrocliente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\login\\cliente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\login\\cliente.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|c:\\users\\daniz\\downloads\\git\\sis457_pizzeria\\sis457pizzeria\\webpizzeria\\views\\login\\empleado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DFEDBE29-C027-453D-BF65-8CA16DF80EF9}|WebPizzeria\\WebPizzeria.csproj|solutionrelative:webpizzeria\\views\\login\\empleado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7321EB02-E496-4D04-9622-BC0D843080C1}|CadPizzeria\\CadPizzeria.csproj|C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\cadpizzeria\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7321EB02-E496-4D04-9622-BC0D843080C1}|CadPizzeria\\CadPizzeria.csproj|solutionrelative:cadpizzeria\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,167 +30,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.Cliente [Datos]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.Cliente.sql",
-              "ToolTip": "dbo.Cliente [Datos]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-22T00:54:31.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Crear.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\Crear.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Pedido\\Crear.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\Crear.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Pedido\\Crear.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-22T00:44:05.016Z",
+              "DocumentIndex": 0,
+              "Title": "PedidoCln.cs",
+              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\PedidoCln.cs",
+              "RelativeDocumentMoniker": "ClnPizzeria\\PedidoCln.cs",
+              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\PedidoCln.cs",
+              "RelativeToolTip": "ClnPizzeria\\PedidoCln.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T21:06:56.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Pedido\\Index.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\Index.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Pedido\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-22T00:37:27.388Z",
-              "EditorCaption": ""
+              "Title": "FinalPizzeriaModel.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\FinalPizzeriaModel.edmx",
+              "RelativeDocumentMoniker": "CadPizzeria\\FinalPizzeriaModel.edmx",
+              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\FinalPizzeriaModel.edmx [Diagram1]",
+              "RelativeToolTip": "CadPizzeria\\FinalPizzeriaModel.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-06-22T20:40:35.152Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T22:03:21.482Z",
-              "EditorCaption": ""
+              "Title": "PedidoController.cs",
+              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Controllers\\PedidoController.cs",
+              "RelativeDocumentMoniker": "WebPizzeria\\Controllers\\PedidoController.cs",
+              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Controllers\\PedidoController.cs",
+              "RelativeToolTip": "WebPizzeria\\Controllers\\PedidoController.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAAwNoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T20:29:30.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "dbo.UsuarioCliente [Datos]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.UsuarioCliente.sql",
-              "ToolTip": "dbo.UsuarioCliente [Datos]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-21T21:24:27.602Z",
-              "EditorCaption": ""
+              "DocumentIndex": 4,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\Pedido.cs",
+              "RelativeDocumentMoniker": "CadPizzeria\\Pedido.cs",
+              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\Pedido.cs",
+              "RelativeToolTip": "CadPizzeria\\Pedido.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA8wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T20:15:00.587Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Login\\Index.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Index.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Login\\Index.cshtml",
+              "DocumentIndex": 3,
+              "Title": "_Recibo.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\_Recibo.cshtml",
+              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Pedido\\_Recibo.cshtml",
+              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Pedido\\_Recibo.cshtml",
+              "RelativeToolTip": "WebPizzeria\\Views\\Pedido\\_Recibo.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:18:42.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:13:52.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Cliente\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Cliente\\Index.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Cliente\\Index.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Cliente\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:11:17.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RegistroCliente.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\RegistroCliente.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Login\\RegistroCliente.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\RegistroCliente.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Login\\RegistroCliente.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:10:43.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Cliente.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Cliente.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Login\\Cliente.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Cliente.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Login\\Cliente.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:07:06.491Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Empleado.cshtml",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Empleado.cshtml",
-              "RelativeDocumentMoniker": "WebPizzeria\\Views\\Login\\Empleado.cshtml",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Views\\Login\\Empleado.cshtml",
-              "RelativeToolTip": "WebPizzeria\\Views\\Login\\Empleado.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T21:00:33.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "WebPizzeria\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "WebPizzeria\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T20:58:23.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "dbo.Usuario [Datos]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinalPizzeria/True/SqlTable/dbo.Usuario.sql",
-              "ToolTip": "dbo.Usuario [Datos]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-21T20:31:29.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T20:10:05.287Z"
             }
           ]
         }

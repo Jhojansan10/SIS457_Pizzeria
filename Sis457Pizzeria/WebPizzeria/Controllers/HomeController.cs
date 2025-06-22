@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebPizzeria.Models;
+using CadPizzeria;
+using ClnPizzeria;
 
 namespace WebPizzeria.Controllers
 {
@@ -15,7 +17,11 @@ namespace WebPizzeria.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var productos = ProductoCln.Listar(""); // o el método que uses
+            var categorias = CategoriaProductoCln.Listar(""); // solo activas
+
+            ViewBag.Categorias = categorias;
+            return View(productos);
         }
 
         public IActionResult Privacy()

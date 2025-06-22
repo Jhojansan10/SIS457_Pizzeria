@@ -81,6 +81,7 @@
     <EntitySetMapping Name="Pedido">
       <EntityTypeMapping TypeName="FinalPizzeriaModel.Pedido">
         <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="idDireccion" ColumnName="idDireccion" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
           <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />

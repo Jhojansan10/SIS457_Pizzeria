@@ -83,6 +83,7 @@
     <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="fechaPedido" Type="datetime" />
     <Property Name="estado" Type="int" />
+    <Property Name="idDireccion" Type="int" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -264,6 +265,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pedido_Direccion">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="0..1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idDireccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="FinalPizzeriaModelStoreContainer">
     <EntitySet Name="CategoriaProducto" EntityType="Self.CategoriaProducto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
@@ -319,6 +332,10 @@
     <AssociationSet Name="FK__UsuarioCl__idCli__3D5E1FD2" Association="Self.FK__UsuarioCl__idCli__3D5E1FD2">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="UsuarioCliente" EntitySet="UsuarioCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Direccion" Association="Self.FK_Pedido_Direccion">
+      <End Role="Direccion" EntitySet="Direccion" />
+      <End Role="Pedido" EntitySet="Pedido" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

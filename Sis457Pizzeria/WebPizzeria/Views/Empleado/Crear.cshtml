@@ -4,47 +4,54 @@
     ViewData["Title"] = "Nuevo Empleado";
 }
 
-<h2>@ViewData["Title"]</h2>
-<form asp-action="Crear" method="post">
-    <div class="row mb-3">
-        <div class="col-md-3">
-            <label>CI</label>
-            <input asp-for="cedulaIdentidad" class="form-control" />
-        </div>
-        <div class="col-md-3">
-            <label>Nombres</label>
-            <input asp-for="nombres" class="form-control" />
-        </div>
-        <div class="col-md-3">
-            <label>Apellido Paterno</label>
-            <input asp-for="primerApellido" class="form-control" />
-        </div>
-        <div class="col-md-3">
-            <label>Apellido Materno</label>
-            <input asp-for="segundoApellido" class="form-control" />
-        </div>
-    </div>
+<section class="ftco-section">
+    <div class="container p-5 rounded shadow" style="max-width: 1000px; background-color: #212529;">
+        <h2 class="text-white mb-4">@ViewData["Title"]</h2>
 
-    <div class="row mb-3">
-        <div class="col-md-4">
-            <label>Dirección</label>
-            <input asp-for="direccion" class="form-control" />
-        </div>
-        <div class="col-md-2">
-            <label>Celular</label>
-            <input asp-for="celular" class="form-control" />
-        </div>
-        <div class="col-md-2">
-            <label>Cargo</label>
-            <select asp-for="cargo" class="form-select">
-                <option value="">-- Seleccione --</option>
-                <option value="Administrador">Administrador</option>
-                <option value="Empleado">Empleado</option>
-                <option value="Repartidor">Repartidor</option>
-            </select>
-        </div>
-    </div>
+        <form asp-action="Crear" method="post">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label text-light">CI</label>
+                    <input asp-for="cedulaIdentidad" class="form-control bg-dark text-light border-secondary" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-light">Nombres</label>
+                    <input asp-for="nombres" class="form-control bg-dark text-light border-secondary" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-light">Apellido Paterno</label>
+                    <input asp-for="primerApellido" class="form-control bg-dark text-light border-secondary" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-light">Apellido Materno</label>
+                    <input asp-for="segundoApellido" class="form-control bg-dark text-light border-secondary" />
+                </div>
+            </div>
 
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label text-light">Dirección</label>
+                    <input asp-for="direccion" class="form-control bg-dark text-light border-secondary" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label text-light">Celular</label>
+                    <input asp-for="celular" class="form-control bg-dark text-light border-secondary" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-light">Cargo</label>
+                    <select asp-for="cargo" class="form-select bg-dark text-light border-secondary">
+                        <option value="">-- Seleccione --</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Empleado">Empleado</option>
+                        <option value="Repartidor">Repartidor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>

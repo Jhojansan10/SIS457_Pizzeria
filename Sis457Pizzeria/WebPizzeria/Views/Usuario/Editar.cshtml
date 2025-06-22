@@ -4,33 +4,40 @@
     ViewData["Title"] = "Editar Usuario";
 }
 
-<h2>@ViewData["Title"]</h2>
+<section class="ftco-section">
+    <div class="container p-5 rounded shadow" style="max-width: 600px; background-color: #212529;">
+        <h2 class="text-white mb-4">@ViewData["Title"]</h2>
 
-<form asp-action="Editar">
-    <input type="hidden" asp-for="id" />
-    <div class="mb-3">
-        <label asp-for="idEmpleado" class="form-label">Empleado</label>
-        <select asp-for="idEmpleado" class="form-select" asp-items="@(ViewBag.Empleados as List<SelectListItem>)">
-            <option value="">-- Seleccione un empleado --</option>
-        </select>
-        <span asp-validation-for="idEmpleado" class="text-danger"></span>
+        <form asp-action="Editar">
+            <input type="hidden" asp-for="id" />
+
+            <div class="mb-3">
+                <label asp-for="idEmpleado" class="form-label text-white">Empleado</label>
+                <select asp-for="idEmpleado" class="form-select bg-dark text-light border-secondary" asp-items="@(ViewBag.Empleados as List<SelectListItem>)">
+                    <option value="">-- Seleccione un empleado --</option>
+                </select>
+                <span asp-validation-for="idEmpleado" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="usuarioLogin" class="form-label text-white">Usuario</label>
+                <input asp-for="usuarioLogin" class="form-control bg-dark text-light border-secondary" />
+                <span asp-validation-for="usuarioLogin" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="clave" class="form-label text-white">Clave</label>
+                <input asp-for="clave" class="form-control bg-dark text-light border-secondary" type="password" />
+                <span asp-validation-for="clave" class="text-danger"></span>
+            </div>
+
+            <div class="mt-4 text-end">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="usuarioLogin" class="form-label">Usuario</label>
-        <input asp-for="usuarioLogin" class="form-control" />
-        <span asp-validation-for="usuarioLogin" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="clave" class="form-label">Clave</label>
-        <input asp-for="clave" class="form-control" type="password" />
-        <span asp-validation-for="clave" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

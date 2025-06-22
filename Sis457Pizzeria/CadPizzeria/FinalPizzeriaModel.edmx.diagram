@@ -27,6 +27,7 @@
         <AssociationConnector Association="FinalPizzeriaModel.FK__Usuario__idEmple__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="FinalPizzeriaModel.FK__Pago__idPedido__70DDC3D8" ManuallyRouted="false" />
         <AssociationConnector Association="FinalPizzeriaModel.FK__Resena__idPedido__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalPizzeriaModel.FK_Pedido_Direccion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

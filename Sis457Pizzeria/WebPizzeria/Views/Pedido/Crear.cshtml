@@ -4,87 +4,126 @@
     ViewData["Title"] = "Crear Pedido";
 }
 
-<h2>Crear Pedido</h2>
+<section class="ftco-section">
+    <div class="container p-5 rounded shadow" style="max-width: 1000px; background-color: #212529;">
+        <h2 class="mb-4">@ViewData["Title"]</h2>
 
-<form asp-action="Crear" method="post" id="formPedido">
-    <div class="row mb-3">
-        <div class="col-md-4">
-            <label>CI del Cliente</label>
-            <input type="text" id="txtCI" name="cedulaIdentidad" class="form-control" autocomplete="off" />
-        </div>
-        <div class="col-md-6">
-            <label>Nombre completo</label>
-            <input type="text" id="txtNombre" name="nombreCompleto" class="form-control" />
-        </div>
+        <form asp-action="Crear" method="post" id="formPedido">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label">CI del Cliente</label>
+                    <input type="text" id="txtCI" name="cedulaIdentidad" class="form-control" autocomplete="off" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" id="txtNombre" name="nombreCompleto" class="form-control" />
+                </div>
+            </div>
+
+            <!-- NUEVO: Modo de Entrega -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Modo de Entrega</label>
+                    <select id="cboModoEntrega" name="modoEntrega" class="form-select">
+                        <option value="Local" selected>Local</option>
+                        <option value="Delivery">Delivery</option>
+                    </select>
+                </div>
+
+                <!-- NUEVO: Repartidor -->
+                <div class="col-md-4">
+                    <label class="form-label">Repartidor</label>
+                    <select id="cboRepartidor" name="idRepartidor" class="form-select" disabled>
+                        <option value="">-- Seleccionar repartidor --</option>
+                        @foreach (var rep in ViewBag.Repartidores)
+                        {
+                            <option value="@rep.id">@rep.nombre</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- NUEVO: Dirección -->
+                <div class="col-md-4">
+                    <label class="form-label">Dirección</label>
+                    <input type="text" id="txtDireccion" name="direccionTexto" class="form-control" disabled autocomplete="off" placeholder="Escriba o seleccione una dirección..." />
+                </div>
+            </div>
+
+
+            <hr class="my-4" />
+
+            <h4 class="mb-3">Agregar productos</h4>
+            <div class="row align-items-end mb-3">
+                <div class="col-md-5">
+                    <label class="form-label">Producto</label>
+                    <select id="cboProducto" class="form-select text-dark" style="max-width: 300px; width: 100%;">
+                        <option value="">-- Seleccionar producto --</option>
+                        @foreach (var item in ViewBag.Productos)
+                        {
+                            <option value="@item.id" data-stock="@item.stock" data-precio="@item.precioVenta">@item.nombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Cantidad</label>
+                    <input type="number" id="txtCantidad" class="form-control" min="1" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Stock</label>
+                    <input type="text" id="txtStock" class="form-control" readonly />
+                </div>
+                <div class="col-md-3 text-end">
+                    <button type="button" class="btn btn-success mt-3 w-100" id="btnAgregar">Agregar</button>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered text-center" id="tablaDetalle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>Total</label>
+                    <input type="text" id="txtTotal" class="form-control" readonly />
+                </div>
+                <div class="col-md-3">
+                    <label>Método de Pago</label>
+                    <select id="cboMetodoPago" name="metodoPago" class="form-select">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="QR">QR</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Monto recibido</label>
+                    <input type="number" name="montoRecibido" id="txtRecibido" class="form-control" min="0" />
+                    <small id="msgErrorPago" class="text-danger d-none">El monto recibido es menor al total.</small>
+                </div>
+                <div class="col-md-3">
+                    <label>Cambio</label>
+                    <input type="text" id="txtCambio" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar Pedido</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
     </div>
-
-    <hr />
-
-    <h4>Productos</h4>
-    <div class="row mb-2">
-        <div class="col-md-4">
-            <select id="cboProducto" class="form-select">
-                <option value="">-- Seleccionar producto --</option>
-                @foreach (var item in ViewBag.Productos)
-                {
-                    <option value="@item.id" data-stock="@item.stock" data-precio="@item.precioVenta">@item.nombre</option>
-                }
-            </select>
-        </div>
-        <div class="col-md-2">
-            <input type="number" id="txtCantidad" class="form-control" placeholder="Cantidad" min="1" />
-        </div>
-        <div class="col-md-2">
-            <input type="text" id="txtStock" class="form-control" placeholder="Stock" readonly />
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-success" id="btnAgregar">Agregar</button>
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <table class="table table-bordered" id="tablaDetalle">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <hr />
-
-    <div class="row mb-3">
-        <div class="col-md-3">
-            <label>Total:</label>
-            <input type="text" id="txtTotal" class="form-control" readonly />
-        </div>
-        <div class="col-md-3">
-            <label>Método de Pago</label>
-            <select id="cboMetodoPago" name="metodoPago" class="form-select">
-                <option value="Efectivo">Efectivo</option>
-                <option value="QR">QR</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <label>Monto recibido</label>
-            <input type="number" name="montoRecibido" id="txtRecibido" class="form-control" min="0" />
-            <small id="msgErrorPago" class="text-danger d-none">El monto recibido es menor al total.</small>
-        </div>
-        <div class="col-md-3">
-            <label>Cambio</label>
-            <input type="text" id="txtCambio" class="form-control" readonly />
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar Pedido</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+</section>
 
 @section Scripts {
     <script>
@@ -174,7 +213,15 @@
                 }
             });
 
-            $("#txtRecibido, #cboMetodoPago").on("input change", validarPago);
+                    $("#cboModoEntrega").change(function () {
+            const esDelivery = $(this).val() === "Delivery";
+            $("#cboRepartidor").prop("disabled", !esDelivery);
+            $("#txtDireccion").prop("disabled", !esDelivery);
+            validarFormulario();
+        });
+
+
+            $("#txtRecibido, #cboMetodoPago, #txtNombre").on("input change", validarFormulario);
 
             $("#formPedido").submit(function () {
                 if (productos.length === 0) {
@@ -219,7 +266,7 @@
         function actualizarTotal() {
             const total = productos.reduce((sum, p) => sum + p.total, 0);
             $("#txtTotal").val(total.toFixed(2));
-            validarPago();
+            validarFormulario();
         }
 
         function calcularCambio() {
@@ -229,24 +276,46 @@
             $("#txtCambio").val(metodo === "Efectivo" ? Math.max(0, recibido - total).toFixed(2) : "0.00");
         }
 
-        function validarPago() {
+        function validarFormulario() {
             const metodo = $("#cboMetodoPago").val();
             const recibidoStr = $("#txtRecibido").val();
             const recibido = parseFloat(recibidoStr);
             const total = parseFloat($("#txtTotal").val()) || 0;
-            const btnGuardar = $("button[type='submit']");
+            const nombre = $("#txtNombre").val().trim();
             const msgError = $("#msgErrorPago");
+            const btnGuardar = $("#btnGuardar");
+
+                    const modo = $("#cboModoEntrega").val();
+        const direccion = $("#txtDireccion").val().trim();
+        const repartidor = $("#cboRepartidor").val();
+
+        if (modo === "Delivery") {
+            if (direccion === "" || repartidor === "") {
+                valido = false;
+            }
+        }
+
+
+            let valido = true;
 
             if (metodo === "Efectivo" && recibidoStr !== "" && recibido < total) {
                 msgError.removeClass("d-none");
-                btnGuardar.prop("disabled", true);
                 $("#txtCambio").val("0.00");
+                valido = false;
             } else {
                 msgError.addClass("d-none");
-                btnGuardar.prop("disabled", false);
                 calcularCambio();
             }
+
+            if (nombre === "") {
+                valido = false;
+            }
+
+            btnGuardar.prop("disabled", !valido);
         }
+
+
+
 
         function limpiarCampos() {
             $("#txtCantidad").val('');
@@ -258,5 +327,14 @@
             $("#btnAgregar").text("Agregar");
             editandoId = null;
         }
+
+           $('#cboProducto').select2({
+            placeholder: "Buscar o seleccionar un producto...",
+            allowClear: true,
+            width: 'resolve' // para que tome el ancho correctamente
+        });
+
+
+
     </script>
 }

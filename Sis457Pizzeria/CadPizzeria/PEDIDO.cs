@@ -30,6 +30,7 @@ namespace CadPizzeria
         public decimal total { get; set; }
         public Nullable<System.DateTime> fechaPedido { get; set; }
         public Nullable<int> estado { get; set; }
+        public Nullable<int> idDireccion { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -39,5 +40,6 @@ namespace CadPizzeria
         public virtual ICollection<Pago> Pago { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Resena> Resena { get; set; }
+        public virtual Direccion Direccion { get; set; }
     }
 }

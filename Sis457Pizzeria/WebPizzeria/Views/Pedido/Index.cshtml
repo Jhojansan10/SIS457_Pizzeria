@@ -4,54 +4,62 @@
     ViewData["Title"] = "Lista de pedidos";
 }
 
-<h2>@ViewData["Title"]</h2>
-<p>
-    <a asp-action="Crear" class="btn btn-primary">Crear nuevo pedido</a>
-</p>
+<section class="ftco-section">
+    <div class="container bg-white p-4 rounded shadow">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h2 class="text-dark">@ViewData["Title"]</h2>
+            </div>
+            <div class="col-md-6 text-end">
+                <a asp-action="Crear" class="btn btn-warning">Crear nuevo pedido</a>
+            </div>
+        </div>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Modo de Entrega</th>
-            <th>Estado</th>
-            <th>Total (Bs)</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.id</td>
-                <td>@item.Cliente.nombres</td>
-                <td>@item.modoEntrega</td>
-                <td>@item.estadoEntrega</td>
-                <td>@item.total.ToString("0.00")</td>
-                <td>@(((DateTime)item.fechaPedido).ToString("dd/MM/yyyy HH:mm"))</td>
-                <td>
-                    <button type="button" class="btn btn-info btn-sm btnVerRecibo" data-id="@item.id">Ver Recibo</button>
-                    @if (item.estadoEntrega == "Pendiente")
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Modo de Entrega</th>
+                        <th>Estado</th>
+                        <th>Total (Bs)</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <a asp-action="Entregar" asp-route-id="@item.id" class="btn btn-success btn-sm ms-1">Marcar como Entregado</a>
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.Cliente.nombres</td>
+                            <td>@item.modoEntrega</td>
+                            <td>@item.estadoEntrega</td>
+                            <td>@item.total.ToString("0.00")</td>
+                            <td>@(((DateTime)item.fechaPedido).ToString("dd/MM/yyyy HH:mm"))</td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-sm btnVerRecibo" data-id="@item.id">Ver Recibo</button>
+                                @if (item.estadoEntrega == "Pendiente")
+                                {
+                                    <a asp-action="Entregar" asp-route-id="@item.id" class="btn btn-success btn-sm ms-1">Marcar como Entregado</a>
+                                }
+                            </td>
+                        </tr>
                     }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
 <!-- Modal para el recibo -->
 <div class="modal fade" id="modalRecibo" tabindex="-1" role="dialog" aria-labelledby="modalReciboLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-dark text-white">
                 <h5 class="modal-title">Detalle del Pedido</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body" id="contenidoRecibo">
                 <!-- Aquí irá el recibo -->

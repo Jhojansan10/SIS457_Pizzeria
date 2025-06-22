@@ -4,37 +4,47 @@
     ViewData["Title"] = "Crear producto";
 }
 
-<h1>Crear nuevo producto</h1>
+<section class="ftco-section">
+    <div class="container p-5 rounded shadow" style="max-width: 800px; background-color: #212529;">
+        <h2 class="mb-4 text-white">@ViewData["Title"]</h2>
 
-<form asp-action="Crear" method="post">
-    <div class="form-group">
-        <label asp-for="codigo" class="control-label"></label>
-        <input asp-for="codigo" class="form-control" />
-        <span asp-validation-for="codigo" class="text-danger"></span>
+        <form asp-action="Crear" method="post">
+            <div class="form-group mb-3">
+                <label asp-for="codigo" class="form-label text-light">Código</label>
+                <input asp-for="codigo" class="form-control bg-dark text-light border-light" />
+                <span asp-validation-for="codigo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="descripcion" class="form-label text-light">Descripción</label>
+                <input asp-for="descripcion" class="form-control bg-dark text-light border-light" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="precioVenta" class="form-label text-light">Precio</label>
+                <input asp-for="precioVenta" class="form-control bg-dark text-light border-light" />
+                <span asp-validation-for="precioVenta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="stock" class="form-label text-light">Stock</label>
+                <input asp-for="stock" class="form-control bg-dark text-light border-light" />
+                <span asp-validation-for="stock" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="idCategoria" class="form-label text-light">Categoría</label>
+                <select asp-for="idCategoria" class="form-select bg-dark text-light border-light" asp-items="ViewBag.Categorias">
+                    <option value="">-- Selecciona una categoría --</option>
+                </select>
+                <span asp-validation-for="idCategoria" class="text-danger"></span>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-warning text-dark">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="descripcion" class="control-label"></label>
-        <input asp-for="descripcion" class="form-control" />
-        <span asp-validation-for="descripcion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="precioVenta" class="control-label"></label>
-        <input asp-for="precioVenta" class="form-control" />
-        <span asp-validation-for="precioVenta" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="stock" class="control-label"></label>
-        <input asp-for="stock" class="form-control" />
-        <span asp-validation-for="stock" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="idCategoria" class="control-label">Categoría</label>
-        <select asp-for="idCategoria" class="form-control" asp-items="ViewBag.Categorias">
-            <option value="">-- Selecciona una categoría --</option>
-        </select>
-        <span asp-validation-for="idCategoria" class="text-danger"></span>
-    </div>
-    <!-- El campo estado NO se muestra -->
-    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary mt-3">Cancelar</a>
-</form>
+</section>

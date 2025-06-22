@@ -25,10 +25,13 @@ namespace CadPizzeria
             {
                 return ctx.Pedido
                     .Include(p => p.Cliente)
+                    .Include(p => p.Direccion)
+                    .Include(p => p.Empleado)
                     .Include(p => p.DetallePedido.Select(d => d.Producto))
                     .FirstOrDefault(p => p.id == id && p.estado != -1);
             }
         }
+
 
         public static void Insertar(Pedido pedido, List<DetallePedido> detalles)
         {

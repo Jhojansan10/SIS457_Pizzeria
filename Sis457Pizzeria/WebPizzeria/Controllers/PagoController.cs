@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ClnPizzeria;
 using CadPizzeria;
+using WebPizzeria.Filters;
 
 namespace WebPizzeria.Controllers
 {
     public class PagoController : Controller
     {
+        [AuthorizeByRole("Administrador")]
         public IActionResult Index(string filtro)
         {
             var lista = PagoCln.Listar(filtro ?? "");

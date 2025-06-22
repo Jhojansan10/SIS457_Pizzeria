@@ -2,11 +2,23 @@
 using CadPizzeria;
 using ClnPizzeria;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Filters;
+using WebPizzeria.Filters;
 
 namespace WebPizzeria.Controllers
 {
+    [AuthorizeByRole("Administrador")]
     public class UsuarioClienteController : Controller
     {
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UsuarioNombre")))
+            {
+                context.Result = RedirectToAction("Empleado", "Login");
+            }
+            base.OnActionExecuting(context);
+        }
+
         public IActionResult Index(string filtro)
         {
             var lista = UsuarioClienteCln.Listar(filtro ?? "");

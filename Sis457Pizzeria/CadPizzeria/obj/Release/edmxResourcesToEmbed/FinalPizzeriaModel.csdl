@@ -54,6 +54,7 @@
     <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
     <Property Name="estado" Type="Int32" />
     <NavigationProperty Name="Cliente" Relationship="Self.FK__Direccion__idCli__5812160E" FromRole="Direccion" ToRole="Cliente" />
+    <NavigationProperty Name="Pedido" Relationship="FinalPizzeriaModel.FK_Pedido_Direccion" FromRole="Direccion" ToRole="Pedido" />
   </EntityType>
   <EntityType Name="Empleado">
     <Key>
@@ -99,6 +100,8 @@
     <NavigationProperty Name="Empleado" Relationship="Self.FK__Pedido__idRepart__5DCAEF64" FromRole="Pedido" ToRole="Empleado" />
     <NavigationProperty Name="Pago" Relationship="Self.FK__Pago__idPedido__70DDC3D8" FromRole="Pedido" ToRole="Pago" />
     <NavigationProperty Name="Resena" Relationship="Self.FK__Resena__idPedido__6B24EA82" FromRole="Pedido" ToRole="Resena" />
+    <Property Name="idDireccion" Type="Int32" />
+    <NavigationProperty Name="Direccion" Relationship="FinalPizzeriaModel.FK_Pedido_Direccion" FromRole="Pedido" ToRole="Direccion" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -342,5 +345,21 @@
       <End Role="Pedido" EntitySet="Pedido" />
       <End Role="Resena" EntitySet="Resena" />
     </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Direccion" Association="FinalPizzeriaModel.FK_Pedido_Direccion">
+      <End Role="Direccion" EntitySet="Direccion" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Pedido_Direccion">
+    <End Type="FinalPizzeriaModel.Direccion" Role="Direccion" Multiplicity="0..1" />
+    <End Type="FinalPizzeriaModel.Pedido" Role="Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idDireccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

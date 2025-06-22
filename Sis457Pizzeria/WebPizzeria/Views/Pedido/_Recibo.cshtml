@@ -1,13 +1,38 @@
 ﻿@model CadPizzeria.Pedido
 
-<div>
-    <h5>Recibo de Pedido #@Model.id</h5>
+<div style="background-color: #212529; color: #f8f9fa; padding: 20px; border-radius: 10px;">
+    <h5 class="text-primary">Recibo de Pedido #@Model.id</h5>
     <p><strong>Cliente:</strong> @Model.Cliente.nombres @Model.Cliente.primerApellido</p>
     <p><strong>Fecha:</strong> @Model.fechaPedido?.ToString("dd/MM/yyyy HH:mm")</p>
     <p><strong>Modo de entrega:</strong> @Model.modoEntrega</p>
     <p><strong>Estado:</strong> @Model.estadoEntrega</p>
 
-    <table class="table">
+    @if (Model.modoEntrega == "Delivery")
+    {
+        if (Model.Direccion != null)
+        {
+            <p><strong>Dirección de entrega:</strong> @Model.Direccion.calle</p>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Direccion.indicaciones))
+            {
+                <p><strong>Indicaciones:</strong> @Model.Direccion.indicaciones</p>
+            }
+        }
+        else
+        {
+            <p class="text-warning">Dirección no disponible.</p>
+        }
+
+        if (Model.Empleado != null)
+        {
+            <p><strong>Repartidor:</strong> @Model.Empleado.nombres @Model.Empleado.primerApellido</p>
+        }
+    }
+
+
+
+
+    <table class="table table-bordered table-dark mt-4">
         <thead>
             <tr>
                 <th>Producto</th>
@@ -29,5 +54,6 @@
         </tbody>
     </table>
 
-    <h5 class="text-end">Total: <strong>@Model.total.ToString("0.00") Bs</strong></h5>
+    <h5 class="text-end mt-3">Total: <strong class="text-warning">@Model.total.ToString("0.00") Bs</strong></h5>
 </div>
+

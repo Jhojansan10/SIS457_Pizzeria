@@ -4,49 +4,52 @@
     ViewData["Title"] = "Lista de clientes";
 }
 
-<h2>@ViewData["Title"]</h2>
+<section class="ftco-section">
+    <div class="container p-4 rounded shadow" style="max-width: 1000px; background-color: #212529;">
+        <h2 class="text-white mb-4">@ViewData["Title"]</h2>
 
-<p>
-    <a asp-action="Crear" class="btn btn-primary">Crear nuevo cliente</a>
-</p>
+        <div class="mb-3">
+            <a asp-action="Crear" class="btn btn-warning text-dark">Crear nuevo cliente</a>
+        </div>
 
-<p class="mt-2">
-    ¿No tienes cuenta? <a asp-action="RegistroCliente">Regístrate aquí</a>
-</p>
+        <form method="get" asp-action="Index" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="filtro" value="@Context.Request.Query["filtro"]" class="form-control bg-dark text-light border-light" placeholder="Buscar por CI o nombre" />
+                <button type="submit" class="btn btn-outline-primary">Buscar</button>
+            </div>
+        </form>
 
-
-<form method="get" asp-action="Index" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="filtro" class="form-control" placeholder="Buscar por CI o nombre" />
-        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+        <div class="table-responsive">
+            <table class="table table-bordered text-light text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>CI</th>
+                        <th>Nombre completo</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.cedulaIdentidad</td>
+                            <td>@($"{item.nombres} {item.primerApellido} {item.segundoApellido}")</td>
+                            <td>@item.celular</td>
+                            <td>@item.direccion</td>
+                            <td>@(item.estado == 1 ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <a asp-action="Editar" asp-route-id="@item.id" class="btn btn-warning btn-sm text-dark">Editar</a>
+                                <a asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger btn-sm"
+                                   onclick="return confirm('¿Estás seguro de eliminar este cliente?');">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</form>
+</section>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>CI</th>
-            <th>Nombre completo</th>
-            <th>Celular</th>
-            <th>Dirección</th>
-            <th>Estado</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.cedulaIdentidad</td>
-                <td>@($"{item.nombres} {item.primerApellido} {item.segundoApellido}")</td>
-                <td>@item.celular</td>
-                <td>@item.direccion</td>
-                <td>@(item.estado == 1 ? "Activo" : "Inactivo")</td>
-                <td>
-                    <a asp-action="Editar" asp-route-id="@item.id" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger btn-sm">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>

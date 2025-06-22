@@ -14,6 +14,12 @@ namespace CadPizzeria
     
     public partial class Direccion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Direccion()
+        {
+            this.Pedido = new HashSet<Pedido>();
+        }
+    
         public int id { get; set; }
         public int idCliente { get; set; }
         public string calle { get; set; }
@@ -22,5 +28,7 @@ namespace CadPizzeria
         public Nullable<int> estado { get; set; }
     
         public virtual Cliente Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pedido> Pedido { get; set; }
     }
 }

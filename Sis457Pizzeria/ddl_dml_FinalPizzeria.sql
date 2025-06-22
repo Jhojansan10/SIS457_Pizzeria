@@ -154,3 +154,8 @@ VALUES
     ('Pizza Especial', 'Pizzas con ingredientes premium', 1),
     ('Bebidas', 'Gaseosas, jugos y aguas', 1),
     ('Postres', 'Tiramisú, helados, tortas', 1);
+
+
+ALTER TABLE Pedido
+ADD CONSTRAINT FK_Pedido_Direccion
+FOREIGN KEY (idDireccion) REFERENCES Direccion(id);

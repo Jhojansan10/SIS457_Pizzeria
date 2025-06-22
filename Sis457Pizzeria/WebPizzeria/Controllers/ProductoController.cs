@@ -2,11 +2,23 @@
 using ClnPizzeria;
 using CadPizzeria;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Filters;
+using WebPizzeria.Filters;
 
 namespace WebPizzeria.Controllers
 {
+    [AuthorizeByRole("Administrador")]
     public class ProductoController : Controller
     {
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UsuarioNombre")))
+            {
+                context.Result = RedirectToAction("Empleado", "Login");
+            }
+            base.OnActionExecuting(context);
+        }
+
         private void CargarCategorias()
         {
             var categorias = CategoriaProductoCln.Listar("");
