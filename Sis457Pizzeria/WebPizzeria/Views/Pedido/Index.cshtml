@@ -5,10 +5,10 @@
 }
 
 <section class="ftco-section">
-    <div class="container bg-white p-4 rounded shadow">
+    <div class="container p-5 rounded shadow" style="background-color: #212529;">
         <div class="row mb-4">
             <div class="col-md-6">
-                <h2 class="text-dark">@ViewData["Title"]</h2>
+                <h2 class="text-white">@ViewData["Title"]</h2>
             </div>
             <div class="col-md-6 text-end">
                 <a asp-action="Crear" class="btn btn-warning">Crear nuevo pedido</a>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered text-center">
+            <table class="table table-bordered text-center text-white">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
@@ -42,7 +42,7 @@
                                 <button type="button" class="btn btn-info btn-sm btnVerRecibo" data-id="@item.id">Ver Recibo</button>
                                 @if (item.estadoEntrega == "Pendiente")
                                 {
-                                    <a asp-action="Entregar" asp-route-id="@item.id" class="btn btn-success btn-sm ms-1">Marcar como Entregado</a>
+                                    <a asp-action="Entregar" asp-route-id="@item.id" class="btn btn-success btn-sm ms-1">Entregado</a>
                                 }
                             </td>
                         </tr>
@@ -62,7 +62,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body" id="contenidoRecibo">
-                <!-- Aquí irá el recibo -->
+                <!-- Aquí se cargará el contenido del recibo -->
             </div>
         </div>
     </div>
@@ -82,5 +82,4 @@
         });
     </script>
 }
-
 

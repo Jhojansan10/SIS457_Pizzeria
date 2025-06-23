@@ -9,161 +9,161 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebPizzeria
 build_property.RootNamespace = WebPizzeria
-build_property.ProjectDir = C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\WebPizzeria\
+build_property.ProjectDir = C:\Users\daniz\Downloads\SIS457_Pizzeria\Sis457Pizzeria\WebPizzeria\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\daniz\Downloads\Git\SIS457_Pizzeria\Sis457Pizzeria\WebPizzeria
+build_property.MSBuildProjectDirectory = C:\Users\daniz\Downloads\SIS457_Pizzeria\Sis457Pizzeria\WebPizzeria
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhUHJvZHVjdG9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhUHJvZHVjdG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/CategoriaProducto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWNjaW9uXENyZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWNjaW9uXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Direccion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWNjaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Empleado/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Home/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Home/Privacy.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Cliente.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Cliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Empleado.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Empleado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRW1wbGVhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/RegistroCliente.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Login/RegistroCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0cm9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pago/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pago/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xDcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pago/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pago/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENyZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/_Recibo.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Pedido/_Recibo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXF9SZWNpYm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/Error.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsaWVudGVcQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsaWVudGVcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/UsuarioCliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsaWVudGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Crear.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Editar.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Index.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Usuario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/_ViewImports.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/_ViewStart.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/daniz/Downloads/Git/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/_Layout.cshtml]
+[C:/Users/daniz/Downloads/SIS457_Pizzeria/Sis457Pizzeria/WebPizzeria/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cf02myupdn

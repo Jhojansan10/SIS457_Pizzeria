@@ -683,11 +683,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
+      "projectUniqueName": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
       "projectName": "WebPizzeria",
-      "projectPath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
+      "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
       "packagesPath": "C:\\Users\\daniz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\obj\\",
+      "outputPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -708,11 +708,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
-              "projectPath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
+            "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
+              "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
             },
-            "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
-              "projectPath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj"
+            "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
+              "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj"
             }
           }
         }
@@ -727,7 +727,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -765,7 +765,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

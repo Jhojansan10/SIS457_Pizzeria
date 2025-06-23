@@ -181,6 +181,21 @@ namespace WebPizzeria.Controllers
             }
         }
 
+        [HttpGet]
+        [AuthorizeByRole("Administrador", "Empleado")]
+        public IActionResult ObtenerCIs(string term)
+        {
+            var lista = ClienteCln.Listar("")
+                .Where(c => c.cedulaIdentidad.StartsWith(term))
+                .Select(c => new { value = c.cedulaIdentidad, nombre = $"{c.nombres} {c.primerApellido}" })
+                .ToList();
+
+            return Json(lista);
+        }
+
+
+
+
         [AuthorizeByRole("Administrador", "Empleado", "Repartidor")]
         public IActionResult Recibo(int id)
         {
@@ -198,7 +213,7 @@ namespace WebPizzeria.Controllers
             }
         }
 
-        [AuthorizeByRole("Administrador", "Empleado")]
+        [AuthorizeByRole("Administrador", "Empleado","Repartidor")]
         public IActionResult Entregar(int id)
         {
             try

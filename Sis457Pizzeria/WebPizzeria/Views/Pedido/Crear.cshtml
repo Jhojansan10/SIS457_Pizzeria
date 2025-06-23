@@ -246,22 +246,33 @@
                 return true;
             });
 
-            $("#txtCI").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "/Cliente/AutocompletarCI",
-                        data: { term: request.term },
-                        success: response
-                    });
-                },
-                select: function (event, ui) {
-                    $("#txtCI").val(ui.item.value);
-                    $("#txtNombre").val(ui.item.nombre);
-                    return false;
-                },
-                minLength: 2
-            });
+                    $("#txtCI").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Pedido/ObtenerCIs",
+                    data: { term: request.term },
+                    success: function (data) {
+                        if (Array.isArray(data)) {
+                            response(data);
+                        } else {
+                            console.error("Respuesta inválida:", data);
+                            response([]);
+                        }
+                    },
+                    error: function () {
+                        console.error("Error al obtener CIs");
+                        response([]);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $("#txtCI").val(ui.item.value);
+                $("#txtNombre").val(ui.item.nombre);
+                return false;
+            },
+            minLength: 2
         });
+
 
         function actualizarTotal() {
             const total = productos.reduce((sum, p) => sum + p.total, 0);
@@ -276,7 +287,9 @@
             $("#txtCambio").val(metodo === "Efectivo" ? Math.max(0, recibido - total).toFixed(2) : "0.00");
         }
 
-        function validarFormulario() {
+                function validarFormulario() {
+            let valido = true; // ← Esto va primero
+
             const metodo = $("#cboMetodoPago").val();
             const recibidoStr = $("#txtRecibido").val();
             const recibido = parseFloat(recibidoStr);
@@ -285,18 +298,15 @@
             const msgError = $("#msgErrorPago");
             const btnGuardar = $("#btnGuardar");
 
-                    const modo = $("#cboModoEntrega").val();
-        const direccion = $("#txtDireccion").val().trim();
-        const repartidor = $("#cboRepartidor").val();
+            const modo = $("#cboModoEntrega").val();
+            const direccion = $("#txtDireccion").val().trim();
+            const repartidor = $("#cboRepartidor").val();
 
-        if (modo === "Delivery") {
-            if (direccion === "" || repartidor === "") {
-                valido = false;
+            if (modo === "Delivery") {
+                if (direccion === "" || repartidor === "") {
+                    valido = false;
+                }
             }
-        }
-
-
-            let valido = true;
 
             if (metodo === "Efectivo" && recibidoStr !== "" && recibido < total) {
                 msgError.removeClass("d-none");
@@ -316,6 +326,25 @@
 
 
 
+            let valido = true;
+
+            if (metodo === "Efectivo" && recibidoStr !== "" && recibido < total) {
+                msgError.removeClass("d-none");
+                $("#txtCambio").val("0.00");
+                valido = false;
+            } else {
+                msgError.addClass("d-none");
+                calcularCambio();
+            }
+
+            if (nombre === "") {
+                valido = false;
+            }
+
+            btnGuardar.prop("disabled", !valido);
+        });
+
+
 
         function limpiarCampos() {
             $("#txtCantidad").val('');
@@ -326,15 +355,13 @@
             $("#txtCantidad").attr("max", stockOriginal - agregado);
             $("#btnAgregar").text("Agregar");
             editandoId = null;
-        }
+        };
 
            $('#cboProducto').select2({
             placeholder: "Buscar o seleccionar un producto...",
             allowClear: true,
             width: 'resolve' // para que tome el ancho correctamente
         });
-
-
 
     </script>
 }

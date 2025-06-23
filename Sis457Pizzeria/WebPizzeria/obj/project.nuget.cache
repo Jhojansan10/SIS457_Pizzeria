@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J9fYHoIkS2c=",
+  "dgSpecHash": "tJyvr7JbjtY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\daniz\\Downloads\\Git\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
+  "projectFilePath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniz\\.nuget\\packages\\entityframework\\6.5.1\\entityframework.6.5.1.nupkg.sha512",
     "C:\\Users\\daniz\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
