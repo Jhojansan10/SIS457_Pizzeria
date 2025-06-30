@@ -1,7 +1,8 @@
-﻿@model IEnumerable<CadPizzeria.Pedido>
+@model IEnumerable<CadPizzeria.Pedido>
 
 @{
     ViewData["Title"] = "Lista de pedidos";
+    var rolUsuario = Context.Session.GetString("UsuarioRol");
 }
 
 <section class="ftco-section">
@@ -11,7 +12,10 @@
                 <h2 class="text-white">@ViewData["Title"]</h2>
             </div>
             <div class="col-md-6 text-end">
-                <a asp-action="Crear" class="btn btn-warning">Crear nuevo pedido</a>
+                @if (rolUsuario != "Repartidor")
+                {
+                    <a asp-action="Crear" class="btn btn-warning">Crear nuevo pedido</a>
+                }
             </div>
         </div>
 
@@ -19,7 +23,6 @@
             <table class="table table-bordered text-center text-white">
                 <thead class="table-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Cliente</th>
                         <th>Modo de Entrega</th>
                         <th>Estado</th>
@@ -32,7 +35,6 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.id</td>
                             <td>@item.Cliente.nombres</td>
                             <td>@item.modoEntrega</td>
                             <td>@item.estadoEntrega</td>
@@ -82,4 +84,3 @@
         });
     </script>
 }
-
