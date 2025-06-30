@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj": {}
+    "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
+    "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj",
+        "projectUniqueName": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj",
         "projectName": "CadPizzeria",
-        "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj",
+        "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net48": {
@@ -20,17 +20,17 @@
         "net48": {}
       }
     },
-    "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
+    "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj",
+        "projectUniqueName": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj",
         "projectName": "ClnPizzeria",
-        "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj",
+        "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
-                "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
+              "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
+                "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
               }
             }
           }
@@ -40,20 +40,20 @@
         "net48": {}
       }
     },
-    "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj": {
+    "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
+        "projectUniqueName": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
         "projectName": "WebPizzeria",
-        "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
-        "packagesPath": "C:\\Users\\daniz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\obj\\",
+        "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\WebPizzeria.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\WebPizzeria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\daniz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -68,11 +68,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
-                "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
+              "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj": {
+                "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\CadPizzeria\\CadPizzeria.csproj"
               },
-              "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
-                "projectPath": "C:\\Users\\daniz\\Downloads\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj"
+              "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj": {
+                "projectPath": "D:\\proyecto_457\\SIS457_Pizzeria\\Sis457Pizzeria\\ClnPizzeria\\ClnPizzeria.csproj"
               }
             }
           }
@@ -87,7 +87,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -125,7 +125,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
